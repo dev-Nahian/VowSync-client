@@ -6,6 +6,30 @@ import toast from "react-hot-toast";
 export default function VendorDashboard() {
   const navigate = useNavigate();
 
+  // Load dynamically registered vendor profile if available
+  const getStoredVendorProfile = () => {
+    try {
+      const stored = localStorage.getItem("wedelogy_vendor_profile");
+      if (stored) {
+        return JSON.parse(stored);
+      }
+    } catch (e) {
+      console.error(e);
+    }
+    return {
+      name: "Luxe Memories Photography Studio",
+      category: "Photography & Cinema",
+      city: "Dhaka",
+      address: "Gulshan-2, Dhaka, Bangladesh",
+      phone: "+880 1812-987654",
+      email: "david@luxememories.com",
+      description:
+        "Award-winning fine-art wedding photography and cinematic 4K storytelling for modern celebrations.",
+    };
+  };
+
+  const [vendorProfile, setVendorProfile] = useState(getStoredVendorProfile);
+
   // Active navigation tab
   const [activeTab, setActiveTab] = useState("overview"); // overview | inquiries | calendar | packages | portfolio | reviews | settings
   const [isAcceptingBookings, setIsAcceptingBookings] = useState(true);
@@ -473,7 +497,7 @@ export default function VendorDashboard() {
                 </div>
                 <div className="hidden sm:block text-left">
                   <p className="text-xs font-bold text-[#1D1D1F]">
-                    Luxe Memories Studio
+                    {vendorProfile.name || "Luxe Memories Studio"}
                   </p>
                   <span className="text-[11px] text-emerald-600 font-semibold flex items-center gap-1">
                     <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
@@ -517,7 +541,7 @@ export default function VendorDashboard() {
                   Studio Portal
                 </span>
                 <p className="text-xs font-bold text-[#1D1D1F] mt-0.5">
-                  Photography & Cinema
+                  {vendorProfile.category || "Photography & Cinema"}
                 </p>
               </div>
               <span className="text-xl">✨</span>
@@ -595,24 +619,24 @@ export default function VendorDashboard() {
                   <div className="space-y-2.5 max-w-2xl">
                     <div className="flex flex-wrap items-center gap-2.5">
                       <span className="px-3.5 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-wider text-[#EBC9D4] border border-white/10">
-                        📸 Photography & 4K Cinema
+                        ✨ {vendorProfile.category || "Photography & 4K Cinema"}
                       </span>
                       <span className="px-3 py-1 bg-emerald-500/25 backdrop-blur-md text-emerald-300 text-xs font-bold rounded-full border border-emerald-500/40 flex items-center gap-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-                        ★ 4.9 Super Vendor
+                        ★ 5.0 Verified Super Vendor
                       </span>
                       <span className="px-3 py-1 bg-amber-500/20 text-amber-300 text-xs font-bold rounded-full border border-amber-500/30">
-                        Top 1% in Dhaka
+                        Top Partner in {vendorProfile.city || "Dhaka"}
                       </span>
                     </div>
 
                     <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-playfair tracking-tight leading-tight">
-                      Luxe Memories Photography Studio
+                      {vendorProfile.name || "Luxe Memories Photography Studio"}
                     </h1>
 
                     <p className="text-xs sm:text-sm text-gray-300 flex flex-wrap items-center gap-3 font-manrope">
                       <span className="flex items-center gap-1">
-                        📍 Gulshan-2, Dhaka
+                        📍 {vendorProfile.city || "Dhaka"}, Bangladesh
                       </span>
                       <span>•</span>
                       <span className="flex items-center gap-1">

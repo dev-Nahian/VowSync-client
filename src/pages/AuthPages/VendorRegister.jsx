@@ -100,7 +100,7 @@ export default function VendorRegister() {
     toast.success(
       `🎉 Welcome ${newVendor.name}! Your vendor card is now live on the homepage & browse directory!`
     );
-    navigate("/browse-vendors");
+    navigate("/vendor-dashboard");
   };
 
   return (
