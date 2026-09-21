@@ -1,102 +1,93 @@
-import BlogImage1 from "@/assets/Images/nrBlogImg1.png";
+import React from "react";
 import Container from "../common/Container";
 import { Link } from "react-router-dom";
 import FeatureElement from "@/assets/Images/nrFeatureElementImage.png";
 
-const BlogData = [
+const servicesData = [
   {
     id: 1,
-    src: BlogImage1,
-    blogTitle: "Catering",
-    blogSubTitle: "Professional catering services for every taste and budget",
+    src: "https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=600&q=80",
+    serviceTitle: "Gourmet Catering & Dining",
+    serviceSubTitle:
+      "Delectable multi-course banquets, live cooking stations, and mocktail lounges customized for your guest palate.",
+    category: "Catering",
   },
   {
     id: 2,
-    src: BlogImage1,
-    blogTitle: "Catering",
-    blogSubTitle: "Professional catering services for every taste and budget",
+    src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=600&q=80",
+    serviceTitle: "Floral & Stage Artistry",
+    serviceSubTitle:
+      "Exquisite floral arrangements, fairy-light canopies, and grand bridal stage setups designed for fairy-tale moments.",
+    category: "Stage & Floral",
   },
   {
     id: 3,
-    src: BlogImage1,
-    blogTitle: "Catering",
-    blogSubTitle: "Professional catering services for every taste and budget",
+    src: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=600&q=80",
+    serviceTitle: "4K Cinematic Photography",
+    serviceSubTitle:
+      "Award-winning fine-art photography, aerial drone cinematography, and same-day teaser edits for lasting memories.",
+    category: "Photography & Film",
   },
 ];
 
 export default function HomeFeaturedService() {
   return (
-    <section className="py-[100px] relative">
+    <section className="py-20 md:py-28 relative font-manrope">
       <Container>
         <div>
-          <div className="flex justify-between items-end">
-            <h2 className="text-[#101828] font-salsa text-[40px] leading-14">
-              Featured Services
-            </h2>
-            <Link className="text-[#CF9585] font-manrope text-2xl font-semibold leading-9 underline">
+          <div className="flex justify-between items-end mb-12">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-[#CF9585]">
+                Tailored Experiences
+              </span>
+              <h2 className="text-[#101828] font-salsa text-3xl sm:text-4xl mt-1">
+                Featured Wedding Services
+              </h2>
+            </div>
+            <Link
+              to="/categories"
+              className="text-[#CF9585] font-manrope text-lg sm:text-2xl font-semibold underline hover:opacity-80 transition-all cursor-pointer"
+            >
               View all
             </Link>
           </div>
 
-          <div className="grid grid-cols-3 gap-10 mt-12">
-            {/* BLOG CARD */}
-            {BlogData.map((blog) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {servicesData.map((service) => (
               <div
-                key={blog.id}
-                className="p-6 rounded-[18px] border border-[#E6C8A5] bg-[#FFF9F5] transition-all ease-linear duration-300 hover:scale-105"
+                key={service.id}
+                className="p-6 rounded-3xl border border-[#E6C8A5] bg-[#FFF9F5] transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 flex flex-col justify-between"
               >
-                <div className="h-[338px]">
-                  <img
-                    className="w-full h-full object-cover"
-                    src={blog.src}
-                    alt="not found"
-                  />
-                </div>
+                <div>
+                  <div className="h-64 rounded-2xl overflow-hidden bg-gray-100 shadow-xs relative">
+                    <img
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      src={service.src}
+                      alt={service.serviceTitle}
+                    />
+                    <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-white font-manrope">
+                      {service.category}
+                    </div>
+                  </div>
 
-                <div className="mt-6">
-                  <div>
-                    <h3 className="text-[#071431] font-manrope text-2xl font-semibold leading-8 mt-3">
-                      {blog.blogTitle}
+                  <div className="mt-5 space-y-2.5">
+                    <h3 className="text-[#071431] font-manrope text-xl font-bold leading-snug">
+                      {service.serviceTitle}
                     </h3>
-                    <p className="text-[#4F586D] font-manrope text-[16px] leading-6 mt-3">
-                      {blog.blogSubTitle}
+                    <p className="text-[#4F586D] font-manrope text-sm leading-relaxed">
+                      {service.serviceSubTitle}
                     </p>
                   </div>
-                  <div className="mt-6">
-                    <Link className="py-[11px] bg-[#EBC9D4] w-full rounded-2xl text-[18px] text-[#1D1D1F] font-salsa leading-[27px] flex items-center justify-center gap-2.5">
-                      Explore Now
-                      <div>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="34"
-                          height="34"
-                          viewBox="0 0 34 34"
-                          fill="none"
-                        >
-                          <path
-                            d="M22.3133 12.5176C27.8144 12.5176 32.2743 16.9774 32.2743 22.4785C32.2743 27.9796 27.8144 32.4395 22.3133 32.4395C20.3603 32.4395 18.5381 31.877 17.0008 30.9055C17.9235 30.323 18.7444 29.593 19.4306 28.7446C20.3079 29.149 21.284 29.3748 22.3133 29.3748C26.1217 29.3748 29.2096 26.2869 29.2096 22.4785C29.2096 17.4207 23.956 14.1261 19.4306 16.2124C15.3474 18.0919 14.0974 23.3736 17.0008 26.8753C16.3454 27.6668 15.516 28.3096 14.571 28.7446C11.6222 25.1087 11.6013 19.8741 14.571 16.2124C16.3903 13.9626 19.1852 12.5176 22.3133 12.5176Z"
-                            fill="#1D1D1F"
-                          />
-                          <path
-                            d="M19.4298 16.2129C22.3786 19.8488 22.3994 25.0834 19.4298 28.7451C17.6105 30.9949 14.8156 32.4399 11.6875 32.4399C6.18641 32.4399 1.72656 27.9801 1.72656 22.479C1.72656 16.4679 7.01761 11.8222 12.9764 12.6011C14.4074 12.7855 15.7807 13.2808 17 14.052C16.0773 14.6345 15.2564 15.3645 14.5702 16.2129C10.0459 14.1271 4.79121 17.4204 4.79121 22.479C4.79121 26.2874 7.8791 29.3753 11.6875 29.3753C13.7998 29.3753 15.7207 28.4208 17 26.8758C19.1123 24.3282 19.1132 20.6308 17 18.0822C17.6554 17.2907 18.4848 16.6479 19.4298 16.2129Z"
-                            fill="#1D1D1F"
-                          />
-                          <path
-                            d="M15.9991 8.46831C15.9991 9.19746 15.7275 9.8655 15.1438 10.5694C14.5903 11.2371 13.6865 12.0004 12.977 12.6008C12.1213 12.49 11.2548 12.49 10.3991 12.6008C9.6855 12.0061 8.7596 11.2054 8.23227 10.5694C7.64855 9.8655 7.37695 9.19746 7.37695 8.46831C7.37695 5.97071 10.2538 4.928 11.688 6.91707C12.1484 6.28116 12.799 5.87714 13.5906 5.87714C14.9709 5.87714 15.9991 7.00844 15.9991 8.46831ZM31.9957 8.10042C32.5718 8.6765 32.2436 9.77187 31.1019 9.87945C30.6645 9.92029 30.1164 9.85103 29.4006 9.80242C29.3514 9.7993 29.3049 9.77838 29.27 9.74356C29.235 9.70873 29.2139 9.66238 29.2107 9.61316C29.1295 8.4134 28.9649 7.59315 29.4889 7.06914C30.1928 6.3629 31.3134 6.87091 31.1584 7.85472C31.4696 7.80565 31.7694 7.87405 31.9957 8.10042Z"
-                            fill="#EC6385"
-                          />
-                          <path
-                            d="M27.0016 5.97691C26.997 6.0469 26.9671 6.11283 26.9175 6.16243C26.8679 6.21203 26.802 6.24191 26.732 6.24651C25.0469 6.36053 23.8648 6.59774 23.1168 5.8514C22.105 4.83957 22.8495 3.25485 24.2338 3.4787C24.0099 2.09387 25.5954 1.35065 26.6065 2.36175C27.3504 3.10397 27.1172 4.27279 27.0016 5.97691Z"
-                            fill="#FF6E6A"
-                          />
-                          <path
-                            d="M16.1034 4.11951C16.0725 4.08869 16.0481 4.05209 16.0314 4.01182C16.0147 3.97154 16.0061 3.92836 16.0061 3.88477C16.0061 3.84117 16.0147 3.79799 16.0314 3.75772C16.0481 3.71744 16.0725 3.68084 16.1034 3.65002L17.4315 2.32189C17.4623 2.29106 17.4989 2.2666 17.5392 2.24991C17.5795 2.23322 17.6226 2.22463 17.6662 2.22463C17.7098 2.22463 17.753 2.23322 17.7933 2.24991C17.8336 2.2666 17.8701 2.29106 17.901 2.32189C17.9318 2.35272 17.9563 2.38931 17.973 2.42959C17.9896 2.46987 17.9982 2.51304 17.9982 2.55664C17.9982 2.60024 17.9896 2.64341 17.973 2.68369C17.9563 2.72397 17.9318 2.76056 17.901 2.79139L16.5729 4.11951C16.5421 4.15037 16.5055 4.17484 16.4652 4.19155C16.4249 4.20825 16.3817 4.21684 16.3381 4.21684C16.2945 4.21684 16.2513 4.20825 16.2111 4.19155C16.1708 4.17484 16.1342 4.15037 16.1034 4.11951ZM19.6585 6.87305H18.3304C18.1469 6.87305 17.9983 6.72443 17.9983 6.54102C17.9983 6.3576 18.1469 6.20898 18.3304 6.20898H19.6585C19.8419 6.20898 19.9905 6.3576 19.9905 6.54102C19.9905 6.72443 19.8419 6.87305 19.6585 6.87305ZM6.80648 4.11951L5.47835 2.79139C5.44688 2.7607 5.42182 2.72407 5.40461 2.68362C5.38741 2.64317 5.37841 2.5997 5.37813 2.55575C5.37786 2.51179 5.38631 2.46822 5.40301 2.42755C5.4197 2.38689 5.44431 2.34995 5.47539 2.31887C5.50648 2.28779 5.54342 2.26319 5.58409 2.2465C5.62475 2.22981 5.66833 2.22136 5.71228 2.22164C5.75624 2.22192 5.7997 2.23093 5.84015 2.24814C5.8806 2.26535 5.91723 2.29042 5.94791 2.32189L7.27604 3.65002C7.30687 3.68084 7.33133 3.71744 7.34802 3.75772C7.36471 3.79799 7.3733 3.84117 7.3733 3.88477C7.3733 3.92836 7.36471 3.97154 7.34802 4.01182C7.33133 4.05209 7.30687 4.08869 7.27604 4.11951C7.24522 4.15037 7.20862 4.17484 7.16833 4.19155C7.12805 4.20825 7.08487 4.21684 7.04126 4.21684C6.99765 4.21684 6.95446 4.20825 6.91418 4.19155C6.87389 4.17484 6.83729 4.15037 6.80648 4.11951ZM5.0491 6.87305H3.97266C3.8846 6.87305 3.80014 6.83807 3.73787 6.7758C3.67561 6.71353 3.64062 6.62908 3.64062 6.54102C3.64062 6.45296 3.67561 6.3685 3.73787 6.30623C3.80014 6.24397 3.8846 6.20898 3.97266 6.20898H5.0491C5.13716 6.20898 5.22162 6.24397 5.28388 6.30623C5.34615 6.3685 5.38113 6.45296 5.38113 6.54102C5.38113 6.62908 5.34615 6.71353 5.28388 6.7758C5.22162 6.83807 5.13716 6.87305 5.0491 6.87305ZM11.6897 3.55273C11.6017 3.55273 11.5172 3.51775 11.4549 3.45548C11.3927 3.39322 11.3577 3.30876 11.3577 3.2207V1.89258C11.3577 1.80452 11.3927 1.72006 11.4549 1.6578C11.5172 1.59553 11.6017 1.56055 11.6897 1.56055C11.7778 1.56055 11.8622 1.59553 11.9245 1.6578C11.9868 1.72006 12.0218 1.80452 12.0218 1.89258V3.2207C12.0218 3.30876 11.9868 3.39322 11.9245 3.45548C11.8622 3.51775 11.7778 3.55273 11.6897 3.55273Z"
-                            fill="#E7BEB2"
-                          />
-                        </svg>
-                      </div>
-                    </Link>
-                  </div>
+                </div>
+
+                <div className="mt-6 pt-2">
+                  <Link
+                    to="/browse-vendors"
+                    className="py-3.5 bg-[#EBC9D4] hover:bg-[#e0b2c0] w-full rounded-2xl text-base text-[#1D1D1F] font-salsa flex items-center justify-center gap-2.5 transition-all shadow-xs cursor-pointer"
+                  >
+                    <span>Explore Now</span>
+                    <span className="text-xl">💍</span>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -104,11 +95,11 @@ export default function HomeFeaturedService() {
         </div>
       </Container>
 
-      <div className=" absolute right-7 top-1/2 -translate-y-1/2 w-60 h-[580px] ">
+      <div className="absolute right-7 top-1/2 -translate-y-1/2 w-48 h-[480px] pointer-events-none hidden xl:block opacity-60">
         <img
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain"
           src={FeatureElement}
-          alt="not found"
+          alt=""
         />
       </div>
     </section>

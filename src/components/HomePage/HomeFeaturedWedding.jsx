@@ -7,146 +7,147 @@ import StarIconSVG from "../SVG/StarIconSVG";
 import LocationIconSVG from "../SVG/LocationIconSVG";
 import ButtonIconDarkSVG from "../SVG/ButtonIconDarkSVG";
 
-const cateringData = [
+const vendorData = [
   {
     id: 1,
-    name: "Bella Vista Catering",
-    price: "$$",
+    name: "Bella Vista Grand Ballroom",
+    price: "$$$",
     rating: 4.9,
-    reviews: 127,
-    location: "Metro Area",
+    reviews: 142,
+    location: "Gulshan, Dhaka",
+    category: "Reception Venue",
     description:
-      "Award-winning catering with farm-to-table ingredients and stunning presentation.",
-    tags: ["Organic", "Vegan Options"],
+      "Award-winning luxury ballroom with grand crystal chandeliers, open-air garden terrace, and 800-guest capacity.",
+    tags: ["Bridal Suite", "Valet Parking", "Catering Kitchen"],
     image: RecentViewImageOne,
   },
   {
     id: 2,
-    name: "Rustic Elegance Catering",
-    price: "$$$",
+    name: "Flora & Bloom Event Styling",
+    price: "$$",
     rating: 4.8,
-    reviews: 89,
-    location: "Downtown & Suburbs",
+    reviews: 98,
+    location: "Banani, Dhaka",
+    category: "Floral & Stage Decor",
     description:
-      "Timeless flavors with elegant plating. Perfect for barn and ballroom weddings.",
-    tags: ["Gluten-Free", "Locally Sourced"],
-    image: RecentViewImageOne,
+      "Signature bespoke floral canopies, fairy-light aisles, and thematic photo-op installations.",
+    tags: ["Custom Mandaps", "Imported Flowers", "3D Rendering"],
+    image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80",
   },
   {
     id: 3,
-    name: "Evergreen Gourmet",
-    price: "$$",
+    name: "Luxe Couture Bridal Studio",
+    price: "$$$",
     rating: 5.0,
-    reviews: 203,
-    location: "Greater Metro",
-    description: "Sustainable, seasonal menus crafted by award-winning chefs.",
-    tags: ["Sustainable", "Custom Menus", "Vegetarian"],
-    image: RecentViewImageOne,
+    reviews: 215,
+    location: "Dhanmondi, Dhaka",
+    category: "Bridal Fashion & MUA",
+    description:
+      "Handcrafted bridal lehengas, bespoke sherwanis, and HD bridal makeup trials with senior celebrity artists.",
+    tags: ["Custom Tailoring", "Jewelry Pairings", "Bridal Trials"],
+    image: "https://images.unsplash.com/photo-1594465919760-441fe5908ab0?auto=format&fit=crop&w=600&q=80",
   },
 ];
 
 export default function HomeFeaturedWedding() {
   return (
-    <section className="py-[100px] bg-[#FFF9F5] relative">
+    <section className="py-20 md:py-28 bg-[#FFF9F5] relative font-manrope">
       <Container>
-        <div className="w-full flex items-center justify-between gap-10">
-          <h3 className="text-[#1D1D1F] text-4xl font-salsa">
-            Featured Wedding Vendors
-          </h3>
+        <div className="w-full flex items-center justify-between gap-10 mb-12">
+          <div>
+            <span className="text-xs font-bold uppercase tracking-wider text-[#CF9585]">
+              Top-Rated Partners
+            </span>
+            <h3 className="text-[#1D1D1F] text-3xl md:text-4xl font-salsa mt-1">
+              Featured Wedding Vendors
+            </h3>
+          </div>
 
-          <Link className="text-[#CF9585] text-2xl font-salsa underline hover:opacity-80 transition-all">
+          <Link
+            to="/browse-vendors"
+            className="text-[#CF9585] text-lg md:text-2xl font-salsa underline hover:opacity-80 transition-all cursor-pointer"
+          >
             View all
           </Link>
         </div>
 
-        <div className="w-full grid grid-cols-3 gap-8 mt-12">
-          {cateringData?.map((item, index) => (
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {vendorData.map((item) => (
             <div
-              className="bg-white border border-[#E6C8A5] rounded-3xl shadow-lg overflow-hidden p-6"
-              key={index}
+              className="bg-white border border-[#E6C8A5] rounded-3xl shadow-md overflow-hidden p-6 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300"
+              key={item.id}
             >
-              <div className="relative">
-                <img
-                  src={item?.image}
-                  alt={item?.name}
-                  className="w-full h-64 object-cover"
-                />
-                <div className="absolute bottom-4 left-4 bg-black/50 bg-opacity-90 px-4 py-2 rounded text-xs font-medium text-white font-manrope">
-                  Photography
+              <div>
+                <div className="relative rounded-2xl overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-60 object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-white font-manrope">
+                    {item.category}
+                  </div>
+                </div>
+
+                <div className="mt-5">
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-gray-900 text-xl font-bold font-manrope leading-snug">
+                      {item.name}
+                    </h3>
+                    <span className="text-[#CF9585] font-bold text-base font-manrope">
+                      {item.price}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-4 text-xs text-gray-600 mb-3">
+                    <div className="flex items-center gap-1">
+                      <span className="text-amber-500 text-sm">★</span>
+                      <span className="text-[#1D1D1F] font-bold text-xs font-manrope">
+                        {item.rating}
+                      </span>
+                      <span>({item.reviews} reviews)</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <div className="size-4">
+                        <LocationIconSVG />
+                      </div>
+                      <span className="text-[#6A7283] font-manrope">
+                        {item.location}
+                      </span>
+                    </div>
+                  </div>
+
+                  <p className="text-[#4F586D] text-xs leading-relaxed font-manrope">
+                    {item.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 my-4">
+                    {item.tags.map((tag, i) => (
+                      <span
+                        key={i}
+                        className="px-2.5 py-0.5 rounded-md bg-[#FAF5F6] text-[#CF9585] text-[11px] font-semibold font-manrope"
+                      >
+                        ✓ {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              <div className="mt-6">
-                <div className="flex justify-between items-start mb-3">
-                  <h3 className="text-gray-900 text-2xl font-semibold font-manrope">
-                    {item.name}
-                  </h3>
-                  <span className="text-gray-900/50 text-lg font-manrope">
-                    {item.price}
-                  </span>
-                </div>
+              <div className="flex items-center gap-3 pt-3 border-t border-gray-100">
+                <Link
+                  to="/browse-vendors"
+                  className="w-1/2 text-sm font-bold font-manrope bg-white border border-[#EBC9D4] text-gray-800 py-3 rounded-xl hover:bg-gray-50 transition flex items-center justify-center gap-1.5 cursor-pointer"
+                >
+                  View Details
+                </Link>
 
-                <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
-                  <div className="flex items-center gap-1">
-                    <div className="size-5">
-                      <StarIconSVG />
-                    </div>
-                    <span className="text-[#6A7283] text-base font-manrope">
-                      {item.rating}
-                    </span>
-                    <span>({item.reviews})</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <div className="size-5">
-                      <LocationIconSVG />
-                    </div>
-                    <span className="text-[#6A7283] text-base font-manrope">
-                      {item?.location}
-                    </span>
-                  </div>
-                </div>
-
-                <p className="text-[#4F586D] text-base font-manrope">
-                  {item.description}
-                </p>
-
-                <div className="flex flex-wrap gap-5 my-6">
-                  {item?.tags?.slice(0, 2).map((tag, i) => (
-                    <span
-                      key={i}
-                      className="text-[#798090] text-xs font-manrope"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                  {item.tags.length > 2 && (
-                    <span className="text-[#798090] text-xs font-manrope">
-                      +{item.tags.length - 2} more
-                    </span>
-                  )}
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <Link
-                    to={"#"}
-                    className="w-1/2 text-lg font-salsa bg-white border border-[#EBC9D4] text-gray-800 py-3 rounded-2xl hover:bg-gray-50 transition flex items-center justify-center gap-2 cursor-pointer"
-                  >
-                    View Details
-                    <div className="size-7">
-                      <ButtonIconDarkSVG />
-                    </div>
-                  </Link>
-
-                  <Link
-                    to={"#"}
-                    className="w-1/2 text-lg font-salsa bg-[#EBC9D4] text-gray-800 py-3 rounded-2xl hover:bg-[#f0beb0] duration-300 flex items-center justify-center gap-2 cursor-pointer"
-                  >
-                    Book Now
-                    <div className="size-7">
-                      <ButtonIconDarkSVG />
-                    </div>
-                  </Link>
-                </div>
+                <Link
+                  to="/browse-vendors"
+                  className="w-1/2 text-sm font-bold font-manrope bg-[#EBC9D4] hover:bg-[#e0b2c0] text-[#1D1D1F] py-3 rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                >
+                  Book Now 💍
+                </Link>
               </div>
             </div>
           ))}
@@ -156,7 +157,7 @@ export default function HomeFeaturedWedding() {
       <img
         src={RecentlyViewVextor}
         alt=""
-        className="absolute top-1/2 right-0 -translate-y-1/2"
+        className="absolute top-1/2 right-0 -translate-y-1/2 pointer-events-none hidden lg:block"
       />
     </section>
   );
