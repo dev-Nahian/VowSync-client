@@ -24,10 +24,28 @@ export default function VendorLoginForm() {
   });
 
   const onSubmit = (data) => {
-    toast.success(`🎉 Logged in successfully as ${loginRole === "couple" ? "Couple" : "Vendor"}!`);
+    toast.success(
+      `🎉 Logged in successfully as ${loginRole === "couple" ? "Couple" : "Vendor"}!`
+    );
     if (loginRole === "couple") {
+      localStorage.setItem(
+        "vowsync_user_session",
+        JSON.stringify({
+          role: "couple",
+          name: "Nadia & Ismail",
+          email: data.email,
+        })
+      );
       navigate("/customer-dashboard");
     } else {
+      localStorage.setItem(
+        "vowsync_user_session",
+        JSON.stringify({
+          role: "vendor",
+          name: "Luxe Memories Photography Studio",
+          email: data.email,
+        })
+      );
       navigate("/vendor-dashboard");
     }
   };

@@ -93,6 +93,14 @@ export default function VendorRegister() {
 
     try {
       localStorage.setItem("wedelogy_vendor_profile", JSON.stringify(newVendor));
+      localStorage.setItem(
+        "vowsync_user_session",
+        JSON.stringify({
+          role: "vendor",
+          name: newVendor.name,
+          email: newVendor.email,
+        })
+      );
     } catch (e) {
       console.error(e);
     }

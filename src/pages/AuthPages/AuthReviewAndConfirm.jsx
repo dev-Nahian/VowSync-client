@@ -14,6 +14,17 @@ export default function AuthReviewAndConfirm() {
 
   const handleConfirmAndCreate = () => {
     dispatch(completeRegistration());
+    try {
+      localStorage.setItem(
+        "vowsync_user_session",
+        JSON.stringify({
+          role: "couple",
+          name: "Nadia & Ismail",
+        })
+      );
+    } catch (e) {
+      console.error(e);
+    }
     toast.success("🎉 Congratulations! Your wedding account is ready!");
     navigate("/customer-dashboard");
   };
