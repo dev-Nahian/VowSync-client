@@ -1,25 +1,32 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import AiIconSVG from "../SVG/AiIconSVG";
 import { SparklesText } from "@/components/ui/sparkles-text";
+import AIChatModal from "./AIChatModal";
 
 export default function LetsChatFloatingButton() {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
   return (
-    <Link
-      to="#"
-      className="fixed bottom-10 right-10 z-999 py-3 px-10 rounded-2xl text-white text-lg font-salsa inline-flex items-center gap-3 hover:opacity-80 transition-all"
-      style={{
-        background: "linear-gradient(90deg, #CC8F7F 0%, #EAC4B8 100%)",
-        boxShadow:
-          "0 4px 4px rgba(0, 0, 0, 0.25), inset 0 4px 12px rgba(207, 149, 133, 0.20)",
-      }}
-    >
-      <SparklesText className={"flex!"}>
-        Let's Chat
-        <div className="size-[25px]">
-          <AiIconSVG />
-        </div>
-      </SparklesText>
-    </Link>
+    <>
+      <button
+        type="button"
+        onClick={() => setIsChatOpen(!isChatOpen)}
+        className="fixed bottom-8 right-8 z-40 py-3 px-8 rounded-full text-white text-base md:text-lg font-salsa inline-flex items-center gap-3 hover:scale-105 active:scale-95 transition-all shadow-xl cursor-pointer"
+        style={{
+          background: "linear-gradient(90deg, #CC8F7F 0%, #EAC4B8 100%)",
+          boxShadow:
+            "0 8px 24px rgba(204, 143, 127, 0.4), inset 0 2px 8px rgba(255, 255, 255, 0.4)",
+        }}
+      >
+        <SparklesText className="flex! items-center gap-2">
+          <span>Let's Chat</span>
+          <div className="size-6 shrink-0">
+            <AiIconSVG />
+          </div>
+        </SparklesText>
+      </button>
+
+      <AIChatModal isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
+    </>
   );
 }

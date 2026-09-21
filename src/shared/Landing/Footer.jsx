@@ -8,134 +8,112 @@ import GooglePlay from "@/assets/Images/google-play.png";
 import AppStore from "@/assets/Images/app-store.png";
 import FooterVectorOne from "@/assets/Images/vectors/footerVectorOne.png";
 import FooterVectorTwo from "@/assets/Images/vectors/footerVectorTwo.png";
+import { Link } from "react-router-dom";
 
 const FooterLinks = [
   {
     heading: "For Couples",
     items: [
-      { label: "Browse Vendors", url: "#" },
-      { label: "Wedding Planning Tools", url: "#" },
-      { label: "Inspiration Gallery", url: "#" },
-      { label: "Budget Calculator", url: "#" },
-      { label: "Wedding Checklist", url: "#" },
+      { label: "Browse Vendors", url: "/browse-vendors" },
+      { label: "Wedding Planning Tools", url: "/customer-dashboard" },
+      { label: "Inspiration Gallery", url: "/inspiration-gallery" },
+      { label: "Budget Calculator", url: "/budget-calculator" },
+      { label: "Wedding Checklist", url: "/wedding-checklist" },
     ],
   },
   {
     heading: "For Vendors",
     items: [
-      { label: "Join as Vendor", url: "#" },
-      { label: "Success Stories", url: "#" },
-      { label: "Vendor Resources", url: "#" },
+      { label: "Join as Vendor", url: "/auth/vendor/register" },
+      { label: "Vendor Partner Portal", url: "/vendor-dashboard" },
+      { label: "Vendor Login", url: "/auth/login" },
+      { label: "Success Stories", url: "/blogs" },
     ],
   },
   {
     heading: "Company",
     items: [
-      { label: "About Us", url: "#" },
-      { label: "Contact Us", url: "#" },
-      { label: "Terms of Service", url: "#" },
-      { label: "Cookie Policy", url: "#" },
-      { label: "Community Guidelines", url: "#" },
+      { label: "About Us", url: "/about-us" },
+      { label: "All Categories", url: "/categories" },
+      { label: "Wedding Journal & Blogs", url: "/blogs" },
+      { label: "Contact Us", url: "/contact" },
+      { label: "Sitemap / All Pages", url: "/all-pages" },
     ],
   },
   {
-    heading: "Support",
+    heading: "Support & Legal",
     items: [
-      { label: "Help Center", url: "#" },
-      { label: "Privacy Policy", url: "#" },
-      { label: "Report an Issue", url: "#" },
+      { label: "Help Center", url: "/help-center" },
+      { label: "Privacy Policy", url: "/privacy-policy" },
+      { label: "Terms of Service", url: "/terms-of-service" },
+      { label: "Direct Concierge", url: "/contact" },
     ],
   },
 ];
 
 export default function Footer() {
   return (
-    <footer className="pt-[100px] pb-[70px] bg-white relative">
+    <footer className="pt-20 pb-16 bg-white relative border-t border-gray-100 font-manrope">
       <Container>
-        <div className="w-full flex justify-between items-start gap-8">
-          <div className="w-4/12">
-            <div className="size-[150px]">
-              <img src={Logo} alt="" />
-            </div>
+        <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-12">
+          <div className="w-full lg:w-4/12 space-y-5">
+            <Link to="/" className="inline-block w-40">
+              <img src={Logo} alt="Wedelogy Logo" className="w-full object-contain" />
+            </Link>
 
-            <p className="text-[#1D1D1F] text-base font-manrope">
-              The ultimate wedding planning platform connecting couples with
-              top-rated vendors. Make your dream wedding a reality with our
-              curated network of professionals.
+            <p className="text-[#5B6477] text-sm leading-relaxed max-w-sm">
+              The premier modern wedding management platform connecting couples with top-rated verified vendors. Plan your dream wedding effortlessly.
             </p>
 
-            <ul className="flex flex-col gap-5 mt-8">
-              <li className="flex items-center gap-2 text-[#CF9585] text-base font-manrope">
-                <div className="size-7">
+            <ul className="flex flex-col gap-3.5 pt-2">
+              <li className="flex items-center gap-2.5 text-[#CF9585] text-xs sm:text-sm">
+                <div className="size-5 shrink-0">
                   <LocationIconSVG />
                 </div>
-                123 Wedding Street, Love City, LC 12345
+                <span>123 Wedding Boulevard, Gulshan 2, Dhaka</span>
               </li>
-              <li className="flex items-center gap-2 text-[#CF9585] text-base font-manrope">
-                <div className="size-7">
+              <li className="flex items-center gap-2.5 text-[#CF9585] text-xs sm:text-sm">
+                <div className="size-5 shrink-0">
                   <PhoneIconSVG />
                 </div>
-                +1 (555) 123-LOVE
+                <span>+1 (555) 123-LOVE / +880 1700-000000</span>
               </li>
-              <li className="flex items-center gap-2 text-[#CF9585] text-base font-manrope">
-                <div className="size-7">
+              <li className="flex items-center gap-2.5 text-[#CF9585] text-xs sm:text-sm">
+                <div className="size-5 shrink-0">
                   <EnvolopeIconSVG />
                 </div>
-                hello@weddingplatform.com
+                <span>hello@wedelogy.com</span>
               </li>
             </ul>
           </div>
 
-          <div className="w-8/12 flex gap-7">
-            <div className="w-9/12 flex gap-7">
-              {FooterLinks?.map((item, index) => (
-                <div key={index}>
-                  <h3 className="text-[#1D1D1F] text-lg font-semibold font-manrope">
-                    {item?.heading}
-                  </h3>
-
-                  <ul className="flex flex-col gap-3 mt-4">
-                    {item?.items?.map((subItem, subIndex) => (
-                      <li key={subIndex}>
-                        <a
-                          href={subItem?.url}
-                          className="text-[#4F586D] text-base font-manrope hover:opacity-80 transition-all"
-                        >
-                          {subItem?.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-
-            <div className="w-3/12">
-              <div>
-                <h3 className="text-[#1D1D1F] text-lg font-semibold font-manrope">
-                  Download our App
+          <div className="w-full lg:w-8/12 grid grid-cols-2 sm:grid-cols-4 gap-8">
+            {FooterLinks.map((section, index) => (
+              <div key={index} className="space-y-3">
+                <h3 className="text-[#1D1D1F] text-sm md:text-base font-bold font-playfair">
+                  {section.heading}
                 </h3>
 
-                <ul className="flex gap-3 mt-4">
-                  <li>
-                    <a href={"#"} className="hover:opacity-80 duration-300">
-                      <img src={GooglePlay} alt="" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href={"#"} className=" hover:opacity-80 duration-300">
-                      <img src={AppStore} alt="" />
-                    </a>
-                  </li>
+                <ul className="flex flex-col gap-2.5">
+                  {section.items.map((item, subIndex) => (
+                    <li key={subIndex}>
+                      <Link
+                        to={item.url}
+                        className="text-[#5B6477] text-xs md:text-sm hover:text-[#CF9585] transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </Container>
 
-      <img src={FooterVectorOne} alt="" className="absolute bottom-0 right-0" />
-      <img src={FooterVectorTwo} alt="" className="absolute -top-1/2 left-0" />
+      <img src={FooterVectorOne} alt="" className="absolute bottom-0 right-0 pointer-events-none hidden lg:block opacity-60" />
+      <img src={FooterVectorTwo} alt="" className="absolute -top-1/4 left-0 pointer-events-none hidden lg:block opacity-60" />
     </footer>
   );
 }

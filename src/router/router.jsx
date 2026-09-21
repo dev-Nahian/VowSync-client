@@ -6,6 +6,12 @@ import BrowseVendors from "@/pages/LendingPages/BrowseVendors";
 import CategoriesPage from "@/pages/LendingPages/CategoriesPage";
 import BlogsPage from "@/pages/LendingPages/BlogsPage";
 import ContactPage from "@/pages/LendingPages/ContactPage";
+import BudgetCalculatorPage from "@/pages/LendingPages/BudgetCalculatorPage";
+import WeddingChecklistPage from "@/pages/LendingPages/WeddingChecklistPage";
+import InspirationGalleryPage from "@/pages/LendingPages/InspirationGalleryPage";
+import HelpCenterPage from "@/pages/LendingPages/HelpCenterPage";
+import PrivacyPolicyPage from "@/pages/LendingPages/PrivacyPolicyPage";
+import TermsOfServicePage from "@/pages/LendingPages/TermsOfServicePage";
 
 import ErrorPage from "@/pages/SubPages/ErrorPage";
 import AllPages from "@/pages/SubPages/AllPages";
@@ -63,6 +69,30 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <ContactPage />,
+      },
+      {
+        path: "budget-calculator",
+        element: <BudgetCalculatorPage />,
+      },
+      {
+        path: "wedding-checklist",
+        element: <WeddingChecklistPage />,
+      },
+      {
+        path: "inspiration-gallery",
+        element: <InspirationGalleryPage />,
+      },
+      {
+        path: "help-center",
+        element: <HelpCenterPage />,
+      },
+      {
+        path: "privacy-policy",
+        element: <PrivacyPolicyPage />,
+      },
+      {
+        path: "terms-of-service",
+        element: <TermsOfServicePage />,
       },
     ],
   },

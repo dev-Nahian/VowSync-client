@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const AllPages = () => {
   const AllPagesLinks = [
-    // ==== MAIN LAYOUT PAGES ====
+    // ==== PUBLIC & LANDING PAGES ====
     { category: "🏠 Public & Landing Pages" },
     { name: "🏠 Home Landing Page", link: "/" },
     { name: "📖 About Us Story", link: "/about-us" },
@@ -11,6 +11,13 @@ const AllPages = () => {
     { name: "🏛️ Categories Showcase", link: "/categories" },
     { name: "📰 Wedding Blogs & Guides", link: "/blogs" },
     { name: "💌 Contact Us & Support", link: "/contact" },
+    { separator: true },
+
+    // ==== PLANNING TOOLS ====
+    { category: "🛠️ Free Wedding Planning Tools" },
+    { name: "💰 Interactive Budget Calculator", link: "/budget-calculator" },
+    { name: "📅 Master 12-Month Wedding Checklist", link: "/wedding-checklist" },
+    { name: "🖼️ Wedding Inspiration Lookbook Gallery", link: "/inspiration-gallery" },
     { separator: true },
 
     // ==== AUTH PAGES ====
@@ -42,6 +49,13 @@ const AllPages = () => {
     { name: "🏪 Dashboard: My Booked Vendors & Quotes", link: "/customer-dashboard/vendors" },
     { name: "💌 Dashboard: Digital Invitation Preview", link: "/customer-dashboard/invitations" },
     { name: "⚙️ Dashboard: Wedding Settings & Profile", link: "/customer-dashboard/settings" },
+    { separator: true },
+
+    // ==== LEGAL & SUPPORT ====
+    { category: "ℹ️ Help & Legal Information" },
+    { name: "❓ Help Center & FAQ Knowledge Base", link: "/help-center" },
+    { name: "🔒 Privacy Policy", link: "/privacy-policy" },
+    { name: "📜 Terms of Service", link: "/terms-of-service" },
   ];
 
   return (
@@ -51,10 +65,10 @@ const AllPages = () => {
           Wedelogy Sitemap
         </span>
         <h1 className="text-3xl md:text-5xl text-black font-bold font-playfair mt-1">
-          All Application Pages & Routes
+          All Application Pages & Tools
         </h1>
         <p className="text-gray-500 text-sm md:text-base mt-2">
-          Directory of all completed frontend routes, dynamic dashboards, and auth steps.
+          Complete sitemap directory of all 26 public pages, planning tools, dashboards, and auth steps.
         </p>
       </div>
 
