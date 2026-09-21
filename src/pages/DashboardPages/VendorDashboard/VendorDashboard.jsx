@@ -51,7 +51,8 @@ export default function VendorDashboard() {
       status: "Confirmed",
       receivedAt: "Yesterday",
       guestCount: "450 Guests",
-      notes: "Looking for cinematic teasers and drone footage of the outdoor garden entrance.",
+      notes:
+        "Looking for cinematic teasers and drone footage of the outdoor garden entrance.",
     },
     {
       id: "inq_2",
@@ -65,7 +66,8 @@ export default function VendorDashboard() {
       status: "New Inquiry",
       receivedAt: "2 hours ago",
       guestCount: "350 Guests",
-      notes: "Need 2 photographers covering stage candid moments and family portraits.",
+      notes:
+        "Need 2 photographers covering stage candid moments and family portraits.",
     },
     {
       id: "inq_3",
@@ -79,7 +81,8 @@ export default function VendorDashboard() {
       status: "Quote Sent",
       receivedAt: "3 days ago",
       guestCount: "600 Guests",
-      notes: "Pre-wedding shoot in Sylhet tea gardens followed by reception at Grand Ballroom.",
+      notes:
+        "Pre-wedding shoot in Sylhet tea gardens followed by reception at Grand Ballroom.",
     },
     {
       id: "inq_4",
@@ -93,7 +96,8 @@ export default function VendorDashboard() {
       status: "New Inquiry",
       receivedAt: "5 hours ago",
       guestCount: "500 Guests",
-      notes: "Traditional lighting style preferred with same-day highlight reel.",
+      notes:
+        "Traditional lighting style preferred with same-day highlight reel.",
     },
     {
       id: "inq_5",
@@ -107,7 +111,8 @@ export default function VendorDashboard() {
       status: "Confirmed",
       receivedAt: "1 week ago",
       guestCount: "700 Guests",
-      notes: "VIP multi-cam live stream for overseas guests and bespoke Italian leather photobooks.",
+      notes:
+        "VIP multi-cam live stream for overseas guests and bespoke Italian leather photobooks.",
     },
   ]);
 
@@ -170,7 +175,7 @@ export default function VendorDashboard() {
       title: "Royal Reception at Grand Ballroom",
       category: "Cinema & Photo",
       imageUrl:
-        "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80",
       views: 1240,
     },
     {
@@ -178,7 +183,7 @@ export default function VendorDashboard() {
       title: "Romantic Pre-Wedding in Sylhet Tea Hills",
       category: "Pre-Wedding",
       imageUrl:
-        "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80",
       views: 980,
     },
     {
@@ -186,7 +191,7 @@ export default function VendorDashboard() {
       title: "Traditional Holud Night Lights & Stage",
       category: "Stage & Candid",
       imageUrl:
-        "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80",
       views: 850,
     },
     {
@@ -194,7 +199,7 @@ export default function VendorDashboard() {
       title: "Bridal Portraiture & Jewelry Highlights",
       category: "Bridal Close-Up",
       imageUrl:
-        "https://images.unsplash.com/photo-1594465919760-441fe5908ab0?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1594465919760-441fe5908ab0?auto=format&fit=crop&w=800&q=80",
       views: 1420,
     },
     {
@@ -202,7 +207,7 @@ export default function VendorDashboard() {
       title: "4K Drone Sunset Ceremony Entrance",
       category: "Aerial Drone",
       imageUrl:
-        "https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80",
       views: 1100,
     },
     {
@@ -210,8 +215,24 @@ export default function VendorDashboard() {
       title: "Candlelit First Dance & Floral Canopy",
       category: "Reception",
       imageUrl:
-        "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80",
       views: 1350,
+    },
+    {
+      id: 7,
+      title: "Grand Stage Lighting & Floral Mandap",
+      category: "Stage & Decor",
+      imageUrl:
+        "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80",
+      views: 920,
+    },
+    {
+      id: 8,
+      title: "Editorial Bridal Lehengas & Styling",
+      category: "Bridal Fashion",
+      imageUrl:
+        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+      views: 1150,
     },
   ]);
 
@@ -310,7 +331,9 @@ export default function VendorDashboard() {
       active: true,
     };
     setPackages([created, ...packages]);
-    toast.success(`Package "${created.title}" published to your public profile!`);
+    toast.success(
+      `Package "${created.title}" published to your public profile!`
+    );
     setNewPackageModalOpen(false);
     setNewPackage({
       title: "",
@@ -334,7 +357,7 @@ export default function VendorDashboard() {
       category: newMedia.category,
       imageUrl:
         newMedia.imageUrl ||
-        "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80",
       views: 1,
     };
     setPortfolioItems([item, ...portfolioItems]);
@@ -388,37 +411,37 @@ export default function VendorDashboard() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FDF9F8] font-manrope flex flex-col text-[#1D1D1F]">
-      {/* Top Navbar */}
-      <header className="sticky top-0 z-40 bg-white border-b border-[#EFE5E7] shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#FAF6F4] font-manrope flex flex-col text-[#1D1D1F] antialiased">
+      {/* Top Navbar: Full Width */}
+      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#EFE5E7] shadow-xs">
+        <div className="w-full px-4 sm:px-6 lg:px-10 xl:px-12">
           <div className="flex items-center justify-between h-20">
             {/* Logo & Portal Identity */}
             <div className="flex items-center gap-4">
               <Link to="/" className="w-36 md:w-44 shrink-0">
                 <img src={Logo} alt="VowSync" className="h-10 object-contain" />
               </Link>
-              <div className="hidden sm:flex items-center gap-2 bg-[#FAF5F6] px-3 py-1 rounded-full border border-[#F0D5DD]">
+              <div className="hidden sm:flex items-center gap-2 bg-[#FFF0F3] px-3.5 py-1.5 rounded-full border border-[#FAD7E0]">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                 <span className="text-xs font-bold text-[#1D1D1F]">
-                  Vendor Pro Portal
+                  Vendor Pro Workspace
                 </span>
               </div>
             </div>
 
             {/* Quick Actions & Status */}
-            <div className="flex items-center gap-3 md:gap-5">
+            <div className="flex items-center gap-3 sm:gap-6">
               {/* Accepting bookings toggle */}
-              <div className="hidden md:flex items-center gap-2.5 bg-gray-50 border border-gray-200 px-3.5 py-1.5 rounded-full text-xs font-semibold">
+              <div className="hidden md:flex items-center gap-2.5 bg-gray-50 border border-gray-200 px-4 py-2 rounded-full text-xs font-semibold shadow-2xs">
                 <span
                   className={`w-2.5 h-2.5 rounded-full ${
                     isAcceptingBookings ? "bg-emerald-500" : "bg-red-500"
                   }`}
                 ></span>
-                <span>
+                <span className="text-gray-700">
                   {isAcceptingBookings
-                    ? "Accepting 2026/2027 Weddings"
-                    : "Booking Calendar Paused"}
+                    ? "Accepting 2026/2027 Bookings"
+                    : "Calendar Paused"}
                 </span>
                 <button
                   type="button"
@@ -430,7 +453,7 @@ export default function VendorDashboard() {
                         : "⏸️ Calendar paused."
                     );
                   }}
-                  className="text-[11px] text-[#CF9585] underline font-bold ml-1 cursor-pointer hover:opacity-80"
+                  className="text-xs text-[#CF9585] underline font-bold ml-1 cursor-pointer hover:opacity-80"
                 >
                   {isAcceptingBookings ? "Pause" : "Resume"}
                 </button>
@@ -438,14 +461,14 @@ export default function VendorDashboard() {
 
               <Link
                 to="/browse-vendors"
-                className="hidden lg:inline-flex items-center gap-1.5 text-xs font-bold text-[#CF9585] hover:text-[#b87d6d] transition-colors"
+                className="hidden lg:inline-flex items-center gap-1.5 text-xs font-bold text-[#CF9585] bg-[#FFF0F3] hover:bg-[#FAD7E0] px-4 py-2 rounded-xl transition-all shadow-2xs"
               >
                 <span>🌐</span> Public Directory &rarr;
               </Link>
 
               {/* Vendor Profile Pill */}
-              <div className="flex items-center gap-3 pl-3 border-l border-gray-200">
-                <div className="w-10 h-10 rounded-full bg-[#1D1D1F] text-white font-bold flex items-center justify-center text-sm shadow-xs ring-2 ring-[#EBC9D4]">
+              <div className="flex items-center gap-3 pl-3 sm:pl-4 border-l border-gray-200">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#1D1D1F] to-[#43393E] text-white font-bold flex items-center justify-center text-sm shadow-md ring-2 ring-[#EBC9D4]">
                   📸
                 </div>
                 <div className="hidden sm:block text-left">
@@ -483,18 +506,21 @@ export default function VendorDashboard() {
         </div>
       </header>
 
-      {/* Main Layout Body */}
-      <div className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col lg:flex-row gap-8">
-        {/* Sidebar Navigation */}
-        <aside className="w-full lg:w-64 shrink-0">
-          <div className="sticky top-28 bg-white rounded-3xl p-4 border border-[#EFE5E7] shadow-xs space-y-1.5">
-            <div className="px-4 py-3 mb-2 border-b border-gray-100">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-gray-400">
-                Partner Workspace
-              </span>
-              <p className="text-xs font-bold text-[#1D1D1F] mt-0.5">
-                Photography & Cinema
-              </p>
+      {/* Main Full-Width Dashboard Container */}
+      <div className="flex-1 w-full px-4 sm:px-6 lg:px-10 xl:px-12 py-8 flex flex-col lg:flex-row gap-8">
+        {/* Left Sidebar: Sticky & Sleek */}
+        <aside className="w-full lg:w-72 shrink-0">
+          <div className="sticky top-28 bg-white rounded-3xl p-5 border border-[#EFE5E7] shadow-sm space-y-2">
+            <div className="px-3 py-3 mb-2 border-b border-gray-100 flex items-center justify-between">
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-gray-400 block">
+                  Studio Portal
+                </span>
+                <p className="text-xs font-bold text-[#1D1D1F] mt-0.5">
+                  Photography & Cinema
+                </p>
+              </div>
+              <span className="text-xl">✨</span>
             </div>
 
             {navMenuItems.map((item) => (
@@ -502,9 +528,9 @@ export default function VendorDashboard() {
                 key={item.id}
                 type="button"
                 onClick={() => setActiveTab(item.id)}
-                className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl text-sm font-semibold transition-all cursor-pointer ${
+                className={`w-full flex items-center justify-between px-4 py-3.5 rounded-2xl text-sm font-semibold transition-all cursor-pointer ${
                   activeTab === item.id
-                    ? "bg-[#1D1D1F] text-white shadow-sm"
+                    ? "bg-gradient-to-r from-[#1D1D1F] to-[#2E272B] text-white shadow-md shadow-black/10 scale-[1.02]"
                     : "text-gray-600 hover:bg-[#FFF0F3] hover:text-[#1D1D1F]"
                 }`}
               >
@@ -514,7 +540,7 @@ export default function VendorDashboard() {
                 </div>
                 {item.badge > 0 && (
                   <span
-                    className={`px-2 py-0.5 rounded-full text-xs font-bold ${
+                    className={`px-2.5 py-0.5 rounded-full text-xs font-bold ${
                       activeTab === item.id
                         ? "bg-[#CF9585] text-white"
                         : "bg-[#CF9585] text-white"
@@ -526,268 +552,356 @@ export default function VendorDashboard() {
               </button>
             ))}
 
-            {/* Quick Support Badge */}
-            <div className="pt-4 mt-4 border-t border-gray-100 px-2">
-              <div className="bg-[#FFF0F3] p-3.5 rounded-2xl border border-[#FAD7E0]">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="text-sm">🌟</span>
+            {/* Partner Guarantee & Concierge Card */}
+            <div className="pt-4 mt-4 border-t border-gray-100 px-1">
+              <div className="bg-gradient-to-br from-[#FFF5F7] to-[#FFF0F3] p-4 rounded-2xl border border-[#FAD7E0] space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="p-1.5 bg-white rounded-xl text-xs shadow-2xs">
+                    🛡️
+                  </span>
                   <p className="text-xs font-bold text-[#1D1D1F]">
-                    Vendor Concierge
+                    Priority Partner Support
                   </p>
                 </div>
-                <p className="text-[11px] text-[#6A7283]">
-                  Need priority assistance or contract help? Contact Partner Support.
+                <p className="text-[11px] text-[#6A7283] leading-relaxed">
+                  Need custom invoice terms, contract approval, or promotion boosts?
                 </p>
                 <Link
                   to="/contact"
-                  className="mt-2 inline-block text-xs font-bold text-[#CF9585] hover:underline"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-[#CF9585] hover:underline pt-1"
                 >
-                  Contact Support &rarr;
+                  Contact Concierge &rarr;
                 </Link>
               </div>
             </div>
           </div>
         </aside>
 
-        {/* Main Content Area */}
+        {/* Main Content Body: Full-Width Flexible Layout */}
         <main className="flex-1 min-w-0 space-y-8">
           {/* ======================================================== */}
           {/* TAB 1: OVERVIEW & ANALYTICS */}
           {/* ======================================================== */}
           {activeTab === "overview" && (
             <div className="space-y-8">
-              {/* Luxury Studio Banner */}
-              <div className="bg-gradient-to-r from-[#1D1D1F] via-[#2F272B] to-[#1D1D1F] text-white p-6 sm:p-8 rounded-3xl shadow-lg flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden">
-                <div className="relative z-10">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="px-3 py-1 bg-white/10 rounded-full text-xs font-bold uppercase tracking-wider text-[#EBC9D4]">
-                      Photography & Cinema Studio
-                    </span>
-                    <span className="px-2.5 py-0.5 bg-emerald-500/20 text-emerald-300 text-xs font-semibold rounded-full border border-emerald-500/30">
-                      ★ 4.9 Super Vendor
-                    </span>
+              {/* Ultra-Luxury Studio Banner */}
+              <div
+                className="relative text-white p-7 sm:p-10 rounded-3xl shadow-xl overflow-hidden bg-cover bg-center border border-white/10"
+                style={{
+                  backgroundImage: `linear-gradient(135deg, rgba(29, 29, 31, 0.95) 0%, rgba(45, 33, 40, 0.90) 50%, rgba(29, 29, 31, 0.97) 100%), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80')`,
+                }}
+              >
+                <div className="relative z-10 flex flex-col xl:flex-row justify-between items-start xl:items-center gap-6">
+                  <div className="space-y-2.5 max-w-2xl">
+                    <div className="flex flex-wrap items-center gap-2.5">
+                      <span className="px-3.5 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-wider text-[#EBC9D4] border border-white/10">
+                        📸 Photography & 4K Cinema
+                      </span>
+                      <span className="px-3 py-1 bg-emerald-500/25 backdrop-blur-md text-emerald-300 text-xs font-bold rounded-full border border-emerald-500/40 flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                        ★ 4.9 Super Vendor
+                      </span>
+                      <span className="px-3 py-1 bg-amber-500/20 text-amber-300 text-xs font-bold rounded-full border border-amber-500/30">
+                        Top 1% in Dhaka
+                      </span>
+                    </div>
+
+                    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-playfair tracking-tight leading-tight">
+                      Luxe Memories Photography Studio
+                    </h1>
+
+                    <p className="text-xs sm:text-sm text-gray-300 flex flex-wrap items-center gap-3 font-manrope">
+                      <span className="flex items-center gap-1">
+                        📍 Gulshan-2, Dhaka
+                      </span>
+                      <span>•</span>
+                      <span className="flex items-center gap-1">
+                        ⭐ 98 Verified Couple Reviews
+                      </span>
+                      <span>•</span>
+                      <span className="flex items-center gap-1">
+                        ⚡ 18 Min Avg. Response Time
+                      </span>
+                    </p>
                   </div>
-                  <h1 className="text-2xl sm:text-3xl font-bold font-playfair">
-                    Luxe Memories Photography Studio
-                  </h1>
-                  <p className="text-xs sm:text-sm text-gray-300 mt-1 flex flex-wrap items-center gap-2">
-                    <span>Gulshan, Dhaka</span>
-                    <span>•</span>
-                    <span>98 Verified Couple Reviews</span>
-                    <span>•</span>
-                    <span>Member since 2024</span>
-                  </p>
+
+                  <div className="flex flex-wrap items-center gap-3 w-full xl:w-auto">
+                    <button
+                      type="button"
+                      onClick={() => setNewPackageModalOpen(true)}
+                      className="px-5 py-3 bg-white hover:bg-gray-100 text-[#1D1D1F] text-xs font-bold rounded-2xl transition-all cursor-pointer shadow-md flex items-center gap-2"
+                    >
+                      <span>💼</span> + Create Package
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setUploadMediaModalOpen(true)}
+                      className="px-5 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white text-xs font-bold rounded-2xl transition-all cursor-pointer shadow-md flex items-center gap-2"
+                    >
+                      <span>🖼️</span> + Upload Media
+                    </button>
+                  </div>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-3 relative z-10">
-                  <button
-                    type="button"
-                    onClick={() => setNewPackageModalOpen(true)}
-                    className="px-4 py-2.5 bg-white text-[#1D1D1F] text-xs font-bold rounded-xl hover:bg-gray-100 transition-all cursor-pointer shadow-xs"
-                  >
-                    💼 + New Package
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setUploadMediaModalOpen(true)}
-                    className="px-4 py-2.5 bg-white/10 border border-white/20 text-white text-xs font-bold rounded-xl hover:bg-white/20 transition-all cursor-pointer"
-                  >
-                    🖼️ + Upload Media
-                  </button>
-                </div>
-
-                {/* Decorative background glow */}
-                <div className="absolute right-0 top-0 w-64 h-64 bg-[#CF9585]/10 rounded-full blur-3xl pointer-events-none" />
+                {/* Ambient glow in corner */}
+                <div className="absolute right-0 top-0 w-80 h-80 bg-[#CF9585]/15 rounded-full blur-3xl pointer-events-none" />
               </div>
 
-              {/* 4 Metric Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                <div className="bg-white p-5 rounded-3xl border border-[#EFE5E7] shadow-xs hover:shadow-md transition-all">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
-                      Total Inquiries
-                    </span>
-                    <span className="p-2 rounded-xl bg-purple-50 text-purple-600 text-base">
-                      💬
-                    </span>
+              {/* 4 Wide Metric Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+                {/* Total Leads */}
+                <div className="bg-white p-6 rounded-3xl border border-[#EFE5E7] shadow-xs hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
+                        Total Inquiries
+                      </span>
+                      <span className="p-2.5 rounded-2xl bg-purple-50 text-purple-600 text-lg shadow-2xs">
+                        💬
+                      </span>
+                    </div>
+                    <div className="text-3xl sm:text-4xl font-bold text-[#1D1D1F] mt-3">
+                      28 Leads
+                    </div>
                   </div>
-                  <div className="text-3xl font-bold text-[#1D1D1F] mt-2">
-                    28 Leads
+                  <div className="pt-3 mt-3 border-t border-gray-100 flex items-center justify-between text-xs">
+                    <span className="text-emerald-600 font-bold flex items-center gap-1">
+                      ↑ 4 new this week
+                    </span>
+                    <span className="text-gray-400 font-medium">14% growth</span>
                   </div>
-                  <p className="text-xs text-emerald-600 font-semibold mt-1 flex items-center gap-1">
-                    <span>↑</span> 4 new this week (14% growth)
-                  </p>
                 </div>
 
-                <div className="bg-white p-5 rounded-3xl border border-[#EFE5E7] shadow-xs hover:shadow-md transition-all">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
-                      Confirmed Bookings
+                {/* Confirmed Bookings */}
+                <div className="bg-white p-6 rounded-3xl border border-[#EFE5E7] shadow-xs hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold uppercase tracking-wider text-emerald-600">
+                        Confirmed Bookings
+                      </span>
+                      <span className="p-2.5 rounded-2xl bg-emerald-50 text-emerald-600 text-lg shadow-2xs">
+                        💍
+                      </span>
+                    </div>
+                    <div className="text-3xl sm:text-4xl font-bold text-emerald-600 mt-3">
+                      12 Weddings
+                    </div>
+                  </div>
+                  <div className="pt-3 mt-3 border-t border-gray-100 flex items-center justify-between text-xs">
+                    <span className="text-gray-600 font-semibold">
+                      Season 2026/2027
                     </span>
-                    <span className="p-2 rounded-xl bg-emerald-50 text-emerald-600 text-base">
-                      💍
+                    <span className="text-emerald-600 font-bold">
+                      85% Capacity
                     </span>
                   </div>
-                  <div className="text-3xl font-bold text-emerald-600 mt-2">
-                    12 Weddings
-                  </div>
-                  <p className="text-xs text-gray-500 mt-1">
-                    Season 2026/2027 • 85% capacity
-                  </p>
                 </div>
 
-                <div className="bg-white p-5 rounded-3xl border border-[#EFE5E7] shadow-xs hover:shadow-md transition-all">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
-                      Projected Revenue
-                    </span>
-                    <span className="p-2 rounded-xl bg-rose-50 text-[#CF9585] text-base">
-                      💰
-                    </span>
+                {/* Projected Revenue */}
+                <div className="bg-white p-6 rounded-3xl border border-[#EFE5E7] shadow-xs hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold uppercase tracking-wider text-[#CF9585]">
+                        Contract Value
+                      </span>
+                      <span className="p-2.5 rounded-2xl bg-rose-50 text-[#CF9585] text-lg shadow-2xs">
+                        💰
+                      </span>
+                    </div>
+                    <div className="text-3xl sm:text-4xl font-bold text-[#CF9585] mt-3">
+                      $68,500
+                    </div>
                   </div>
-                  <div className="text-3xl font-bold text-[#CF9585] mt-2">
-                    $68,500
+                  <div className="pt-3 mt-3 border-t border-gray-100 flex items-center justify-between text-xs">
+                    <span className="text-gray-600 font-semibold">
+                      $58,225 collected
+                    </span>
+                    <span className="text-emerald-600 font-bold">85% Paid</span>
                   </div>
-                  <p className="text-xs text-gray-500 mt-1">
-                    $58,225 (85%) collected in advances
-                  </p>
                 </div>
 
-                <div className="bg-white p-5 rounded-3xl border border-[#EFE5E7] shadow-xs hover:shadow-md transition-all">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
-                      Profile Views
-                    </span>
-                    <span className="p-2 rounded-xl bg-blue-50 text-blue-600 text-base">
-                      👀
-                    </span>
+                {/* Profile Views */}
+                <div className="bg-white p-6 rounded-3xl border border-[#EFE5E7] shadow-xs hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
+                        Profile Views
+                      </span>
+                      <span className="p-2.5 rounded-2xl bg-blue-50 text-blue-600 text-lg shadow-2xs">
+                        👀
+                      </span>
+                    </div>
+                    <div className="text-3xl sm:text-4xl font-bold text-blue-600 mt-3">
+                      3,420
+                    </div>
                   </div>
-                  <div className="text-3xl font-bold text-blue-600 mt-2">
-                    3,420
+                  <div className="pt-3 mt-3 border-t border-gray-100 flex items-center justify-between text-xs">
+                    <span className="text-blue-600 font-bold">Top 5% category</span>
+                    <span className="text-gray-400">+380 this month</span>
                   </div>
-                  <p className="text-xs text-emerald-600 font-semibold mt-1">
-                    Top 5% in Photography category
-                  </p>
                 </div>
               </div>
 
-              {/* Revenue & Pipeline Breakdown */}
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                {/* Revenue Pipeline */}
-                <div className="lg:col-span-2 bg-white p-6 sm:p-7 rounded-3xl border border-[#EFE5E7] shadow-xs space-y-5">
-                  <div className="flex items-center justify-between">
+              {/* Revenue Pipeline & Quality Score Grid */}
+              <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+                {/* Pipeline Progression */}
+                <div className="xl:col-span-2 bg-white p-7 sm:p-8 rounded-3xl border border-[#EFE5E7] shadow-xs space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div>
-                      <h3 className="text-lg font-bold font-playfair text-[#1D1D1F]">
-                        Monthly Booking Pipeline (2026 - 2027)
+                      <h3 className="text-xl font-bold font-playfair text-[#1D1D1F]">
+                        Monthly Wedding Schedule & Revenue (2026 - 2027)
                       </h3>
                       <p className="text-xs text-gray-500 mt-0.5">
-                        Contract values scheduled by wedding execution month
+                        Confirmed event production values breakdown
                       </p>
                     </div>
-                    <span className="px-3 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-xl">
-                      Healthy Pipeline
+                    <span className="px-3.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-full w-max">
+                      ● Active Production Queue
                     </span>
                   </div>
 
-                  <div className="space-y-4 pt-2">
+                  <div className="space-y-5 pt-2">
                     <div>
-                      <div className="flex justify-between text-xs font-semibold mb-1">
-                        <span>October 2026 (Peak Season)</span>
-                        <span className="font-bold text-[#1D1D1F]">$18,500 (3 Weddings)</span>
+                      <div className="flex justify-between text-xs font-semibold mb-1.5">
+                        <span className="text-gray-700 font-bold">
+                          October 2026 (Peak Season)
+                        </span>
+                        <span className="font-bold text-[#1D1D1F]">
+                          $18,500 • 3 Weddings
+                        </span>
                       </div>
-                      <div className="w-full h-3 bg-gray-100 rounded-full overflow-hidden">
-                        <div className="h-full bg-emerald-500 rounded-full" style={{ width: "90%" }}></div>
+                      <div className="w-full h-3.5 bg-gray-100 rounded-full overflow-hidden p-0.5">
+                        <div
+                          className="h-full bg-emerald-500 rounded-full transition-all duration-500"
+                          style={{ width: "90%" }}
+                        ></div>
                       </div>
                     </div>
 
                     <div>
-                      <div className="flex justify-between text-xs font-semibold mb-1">
-                        <span>November 2026 (Winter Season)</span>
-                        <span className="font-bold text-[#1D1D1F]">$22,000 (4 Weddings)</span>
+                      <div className="flex justify-between text-xs font-semibold mb-1.5">
+                        <span className="text-gray-700 font-bold">
+                          November 2026 (Winter Weddings)
+                        </span>
+                        <span className="font-bold text-[#1D1D1F]">
+                          $22,000 • 4 Weddings
+                        </span>
                       </div>
-                      <div className="w-full h-3 bg-gray-100 rounded-full overflow-hidden">
-                        <div className="h-full bg-[#CF9585] rounded-full" style={{ width: "100%" }}></div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className="flex justify-between text-xs font-semibold mb-1">
-                        <span>December 2026</span>
-                        <span className="font-bold text-[#1D1D1F]">$16,000 (3 Weddings)</span>
-                      </div>
-                      <div className="w-full h-3 bg-gray-100 rounded-full overflow-hidden">
-                        <div className="h-full bg-blue-500 rounded-full" style={{ width: "75%" }}></div>
+                      <div className="w-full h-3.5 bg-gray-100 rounded-full overflow-hidden p-0.5">
+                        <div
+                          className="h-full bg-[#CF9585] rounded-full transition-all duration-500"
+                          style={{ width: "100%" }}
+                        ></div>
                       </div>
                     </div>
 
                     <div>
-                      <div className="flex justify-between text-xs font-semibold mb-1">
-                        <span>January - February 2027</span>
-                        <span className="font-bold text-[#1D1D1F]">$12,000 (2 Weddings)</span>
+                      <div className="flex justify-between text-xs font-semibold mb-1.5">
+                        <span className="text-gray-700 font-bold">
+                          December 2026
+                        </span>
+                        <span className="font-bold text-[#1D1D1F]">
+                          $16,000 • 3 Weddings
+                        </span>
                       </div>
-                      <div className="w-full h-3 bg-gray-100 rounded-full overflow-hidden">
-                        <div className="h-full bg-amber-500 rounded-full" style={{ width: "55%" }}></div>
+                      <div className="w-full h-3.5 bg-gray-100 rounded-full overflow-hidden p-0.5">
+                        <div
+                          className="h-full bg-blue-500 rounded-full transition-all duration-500"
+                          style={{ width: "75%" }}
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="flex justify-between text-xs font-semibold mb-1.5">
+                        <span className="text-gray-700 font-bold">
+                          January - February 2027
+                        </span>
+                        <span className="font-bold text-[#1D1D1F]">
+                          $12,000 • 2 Weddings
+                        </span>
+                      </div>
+                      <div className="w-full h-3.5 bg-gray-100 rounded-full overflow-hidden p-0.5">
+                        <div
+                          className="h-full bg-amber-500 rounded-full transition-all duration-500"
+                          style={{ width: "55%" }}
+                        ></div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Performance Quality Score */}
-                <div className="bg-white p-6 sm:p-7 rounded-3xl border border-[#EFE5E7] shadow-xs space-y-4 flex flex-col justify-between">
+                {/* Partner Quality Score */}
+                <div className="bg-white p-7 sm:p-8 rounded-3xl border border-[#EFE5E7] shadow-xs space-y-5 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-lg font-bold font-playfair text-[#1D1D1F]">
+                    <h3 className="text-xl font-bold font-playfair text-[#1D1D1F]">
                       Partner Performance
                     </h3>
                     <p className="text-xs text-gray-500 mt-0.5">
-                      VowSync Certified Quality Metrics
+                      VowSync Verified Quality Standard
                     </p>
                   </div>
 
-                  <div className="space-y-3.5">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="text-gray-600">Average Response Time</span>
-                      <span className="font-bold text-emerald-600">⚡ 18 Minutes</span>
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between text-xs p-3 bg-gray-50 rounded-2xl">
+                      <span className="text-gray-600 font-medium">
+                        Average Response Time
+                      </span>
+                      <span className="font-bold text-emerald-600">
+                        ⚡ 18 Minutes
+                      </span>
                     </div>
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="text-gray-600">Quote Acceptance Rate</span>
+                    <div className="flex items-center justify-between text-xs p-3 bg-gray-50 rounded-2xl">
+                      <span className="text-gray-600 font-medium">
+                        Quote Acceptance Rate
+                      </span>
                       <span className="font-bold text-[#1D1D1F]">78.5%</span>
                     </div>
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="text-gray-600">5-Star Review Ratio</span>
+                    <div className="flex items-center justify-between text-xs p-3 bg-gray-50 rounded-2xl">
+                      <span className="text-gray-600 font-medium">
+                        5-Star Review Ratio
+                      </span>
                       <span className="font-bold text-amber-500">★ 98.2%</span>
                     </div>
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="text-gray-600">On-Time Album Delivery</span>
-                      <span className="font-bold text-emerald-600">100% (No delays)</span>
+                    <div className="flex items-center justify-between text-xs p-3 bg-gray-50 rounded-2xl">
+                      <span className="text-gray-600 font-medium">
+                        On-Time Master Delivery
+                      </span>
+                      <span className="font-bold text-emerald-600">
+                        100% (No delays)
+                      </span>
                     </div>
                   </div>
 
-                  <div className="p-3.5 bg-[#FFF9F5] border border-[#E6C8A5] rounded-2xl">
-                    <p className="text-xs font-bold text-[#1D1D1F]">🏆 Tier 1 Partner Badge</p>
-                    <p className="text-[11px] text-gray-600 mt-0.5">
-                      Your profile receives top placement in customer vendor searches.
+                  <div className="p-4 bg-gradient-to-r from-[#FFF9F5] to-[#FFF0F3] border border-[#E6C8A5] rounded-2xl">
+                    <p className="text-xs font-bold text-[#1D1D1F]">
+                      🏆 Tier 1 Partner Search Placement
+                    </p>
+                    <p className="text-[11px] text-gray-600 mt-1 leading-relaxed">
+                      Your profile receives top-spot placement in bride/groom search queries.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Recent Inquiries Quick Table */}
+              {/* Full-Width Recent Inquiries Table */}
               <div className="bg-white rounded-3xl border border-[#EFE5E7] shadow-xs overflow-hidden">
-                <div className="p-6 border-b border-gray-100 flex items-center justify-between">
+                <div className="p-6 sm:p-7 border-b border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
-                    <h2 className="text-lg font-bold font-playfair text-[#1D1D1F]">
-                      Recent Incoming Inquiries
+                    <h2 className="text-xl font-bold font-playfair text-[#1D1D1F]">
+                      Incoming Client Booking Requests
                     </h2>
                     <p className="text-xs text-gray-500 mt-0.5">
-                      Respond quickly to secure new couple bookings
+                      Respond quickly to secure new dates with engaged couples
                     </p>
                   </div>
                   <button
                     type="button"
                     onClick={() => setActiveTab("inquiries")}
-                    className="text-xs font-bold text-[#CF9585] hover:underline cursor-pointer"
+                    className="text-xs font-bold text-[#CF9585] hover:underline cursor-pointer inline-flex items-center gap-1"
                   >
-                    View All Inquiries ({inquiries.length}) &rarr;
+                    <span>View All Inquiries ({inquiries.length})</span>
+                    <span>&rarr;</span>
                   </button>
                 </div>
 
@@ -795,40 +909,44 @@ export default function VendorDashboard() {
                   <table className="w-full text-left text-sm text-gray-700">
                     <thead className="bg-[#FAF5F6] text-xs font-bold uppercase tracking-wider text-gray-500 border-b border-gray-100">
                       <tr>
-                        <th className="px-6 py-4">Couple</th>
-                        <th className="px-6 py-4">Wedding Date</th>
-                        <th className="px-6 py-4">Venue</th>
-                        <th className="px-6 py-4">Budget</th>
-                        <th className="px-6 py-4">Status</th>
-                        <th className="px-6 py-4 text-right">Action</th>
+                        <th className="px-7 py-4">Couple Name</th>
+                        <th className="px-7 py-4">Wedding Date</th>
+                        <th className="px-7 py-4">Venue & City</th>
+                        <th className="px-7 py-4">Package Requested</th>
+                        <th className="px-7 py-4">Budget</th>
+                        <th className="px-7 py-4">Status</th>
+                        <th className="px-7 py-4 text-right">Actions</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100 font-manrope">
-                      {inquiries.slice(0, 3).map((inq) => (
+                      {inquiries.slice(0, 4).map((inq) => (
                         <tr
                           key={inq.id}
-                          className="hover:bg-gray-50/70 transition-all"
+                          className="hover:bg-[#FFFBFB] transition-all"
                         >
-                          <td className="px-6 py-4">
+                          <td className="px-7 py-4">
                             <div className="font-bold text-[#1D1D1F]">
                               {inq.couple}
                             </div>
                             <span className="text-xs text-gray-400">
-                              {inq.service}
+                              Received {inq.receivedAt}
                             </span>
                           </td>
-                          <td className="px-6 py-4 font-semibold text-[#1D1D1F]">
+                          <td className="px-7 py-4 font-semibold text-[#1D1D1F]">
                             {inq.date}
                           </td>
-                          <td className="px-6 py-4 text-xs text-gray-600">
+                          <td className="px-7 py-4 text-xs text-gray-600 max-w-xs truncate">
                             {inq.location}
                           </td>
-                          <td className="px-6 py-4 font-bold text-[#1D1D1F]">
+                          <td className="px-7 py-4 text-xs font-medium text-gray-800">
+                            {inq.service}
+                          </td>
+                          <td className="px-7 py-4 font-bold text-[#1D1D1F]">
                             {inq.budget}
                           </td>
-                          <td className="px-6 py-4">
+                          <td className="px-7 py-4">
                             <span
-                              className={`px-2.5 py-1 rounded-full text-xs font-bold ${
+                              className={`px-3 py-1 rounded-full text-xs font-bold inline-block ${
                                 inq.status === "Confirmed"
                                   ? "bg-green-100 text-green-700"
                                   : inq.status === "Quote Sent"
@@ -839,16 +957,16 @@ export default function VendorDashboard() {
                               {inq.status}
                             </span>
                           </td>
-                          <td className="px-6 py-4 text-right space-x-2">
+                          <td className="px-7 py-4 text-right space-x-2">
                             <button
                               type="button"
                               onClick={() => {
                                 setActiveInquiryForBrief(inq);
                                 setBriefModalOpen(true);
                               }}
-                              className="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-bold rounded-lg transition-all cursor-pointer"
+                              className="px-3.5 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-bold rounded-xl transition-all cursor-pointer"
                             >
-                              View Brief
+                              Brief
                             </button>
                             {inq.status !== "Confirmed" && (
                               <button
@@ -860,7 +978,7 @@ export default function VendorDashboard() {
                                   );
                                   setQuoteModalOpen(true);
                                 }}
-                                className="px-3 py-1 bg-[#EBC9D4] hover:bg-[#e0b2c0] text-[#1D1D1F] text-xs font-bold rounded-lg transition-all cursor-pointer"
+                                className="px-3.5 py-1.5 bg-[#EBC9D4] hover:bg-[#e0b2c0] text-[#1D1D1F] text-xs font-bold rounded-xl transition-all cursor-pointer shadow-xs"
                               >
                                 Send Quote 💍
                               </button>
@@ -876,32 +994,32 @@ export default function VendorDashboard() {
           )}
 
           {/* ======================================================== */}
-          {/* TAB 2: CLIENT INQUIRIES & LEADS */}
+          {/* TAB 2: CLIENT INQUIRIES & LEADS (FULL WIDTH) */}
           {/* ======================================================== */}
           {activeTab === "inquiries" && (
             <div className="space-y-6">
               {/* Header & Filter Controls */}
-              <div className="bg-white p-6 rounded-3xl border border-[#EFE5E7] shadow-xs flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+              <div className="bg-white p-7 rounded-3xl border border-[#EFE5E7] shadow-xs flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                  <h2 className="text-xl font-bold font-playfair text-[#1D1D1F]">
+                  <h2 className="text-2xl font-bold font-playfair text-[#1D1D1F]">
                     Client Leads & Booking Inquiries
                   </h2>
                   <p className="text-xs text-gray-500 mt-0.5">
-                    Track quote responses, client messages, and confirmed contracts
+                    Filter, search, and manage incoming quote requests
                   </p>
                 </div>
 
                 <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
                   {/* Search Bar */}
-                  <div className="relative flex-1 sm:w-64">
+                  <div className="relative flex-1 sm:w-72">
                     <input
                       type="text"
-                      placeholder="Search couple or venue..."
+                      placeholder="Search couple, venue or service..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-full pl-9 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-xs font-manrope outline-none focus:border-[#CF9585]"
+                      className="w-full pl-9 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs font-manrope outline-none focus:border-[#CF9585]"
                     />
-                    <span className="absolute left-3 top-2.5 text-gray-400 text-xs">
+                    <span className="absolute left-3 top-3 text-gray-400 text-xs">
                       🔍
                     </span>
                   </div>
@@ -914,7 +1032,7 @@ export default function VendorDashboard() {
                           key={status}
                           type="button"
                           onClick={() => setSelectedStatusFilter(status)}
-                          className={`px-3 py-1 text-xs font-bold rounded-lg transition-all cursor-pointer ${
+                          className={`px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${
                             selectedStatusFilter === status
                               ? "bg-white text-[#1D1D1F] shadow-xs"
                               : "text-gray-500 hover:text-[#1D1D1F]"
@@ -934,13 +1052,13 @@ export default function VendorDashboard() {
                   <table className="w-full text-left text-sm text-gray-700">
                     <thead className="bg-[#FAF5F6] text-xs font-bold uppercase tracking-wider text-gray-500 border-b border-gray-100">
                       <tr>
-                        <th className="px-6 py-4">Couple Name</th>
-                        <th className="px-6 py-4">Target Date</th>
-                        <th className="px-6 py-4">Location / Venue</th>
-                        <th className="px-6 py-4">Requested Package</th>
-                        <th className="px-6 py-4">Budget</th>
-                        <th className="px-6 py-4">Status</th>
-                        <th className="px-6 py-4 text-right">Actions</th>
+                        <th className="px-7 py-4">Couple Name</th>
+                        <th className="px-7 py-4">Target Date</th>
+                        <th className="px-7 py-4">Location / Venue</th>
+                        <th className="px-7 py-4">Requested Service</th>
+                        <th className="px-7 py-4">Budget</th>
+                        <th className="px-7 py-4">Status</th>
+                        <th className="px-7 py-4 text-right">Actions</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100 font-manrope">
@@ -948,18 +1066,18 @@ export default function VendorDashboard() {
                         <tr>
                           <td
                             colSpan="7"
-                            className="px-6 py-12 text-center text-gray-500 text-sm"
+                            className="px-7 py-16 text-center text-gray-500 text-sm"
                           >
-                            No matching inquiries found. Try clearing your search or status filter.
+                            No inquiries match your filter. Try adjusting search criteria.
                           </td>
                         </tr>
                       ) : (
                         filteredInquiries.map((inq) => (
                           <tr
                             key={inq.id}
-                            className="hover:bg-gray-50/70 transition-all"
+                            className="hover:bg-[#FFFBFB] transition-all"
                           >
-                            <td className="px-6 py-4">
+                            <td className="px-7 py-4">
                               <div className="font-bold text-[#1D1D1F]">
                                 {inq.couple}
                               </div>
@@ -967,21 +1085,21 @@ export default function VendorDashboard() {
                                 {inq.phone}
                               </span>
                             </td>
-                            <td className="px-6 py-4 font-semibold text-[#1D1D1F]">
+                            <td className="px-7 py-4 font-semibold text-[#1D1D1F]">
                               {inq.date}
                             </td>
-                            <td className="px-6 py-4 text-xs text-gray-600 max-w-xs">
+                            <td className="px-7 py-4 text-xs text-gray-600 max-w-xs">
                               {inq.location}
                             </td>
-                            <td className="px-6 py-4 text-xs font-medium text-gray-800">
+                            <td className="px-7 py-4 text-xs font-medium text-gray-800">
                               {inq.service}
                             </td>
-                            <td className="px-6 py-4 font-bold text-[#1D1D1F]">
+                            <td className="px-7 py-4 font-bold text-[#1D1D1F]">
                               {inq.budget}
                             </td>
-                            <td className="px-6 py-4">
+                            <td className="px-7 py-4">
                               <span
-                                className={`px-2.5 py-1 rounded-full text-xs font-bold ${
+                                className={`px-3 py-1 rounded-full text-xs font-bold ${
                                   inq.status === "Confirmed"
                                     ? "bg-green-100 text-green-700"
                                     : inq.status === "Quote Sent"
@@ -992,16 +1110,16 @@ export default function VendorDashboard() {
                                 {inq.status}
                               </span>
                             </td>
-                            <td className="px-6 py-4 text-right space-x-2">
+                            <td className="px-7 py-4 text-right space-x-2">
                               <button
                                 type="button"
                                 onClick={() => {
                                   setActiveInquiryForBrief(inq);
                                   setBriefModalOpen(true);
                                 }}
-                                className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-bold rounded-lg transition-all cursor-pointer"
+                                className="px-3.5 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs font-bold rounded-xl transition-all cursor-pointer"
                               >
-                                Details
+                                Dossier
                               </button>
 
                               {inq.status !== "Confirmed" && (
@@ -1014,7 +1132,7 @@ export default function VendorDashboard() {
                                     );
                                     setQuoteModalOpen(true);
                                   }}
-                                  className="px-3 py-1.5 bg-[#1D1D1F] hover:bg-black text-white text-xs font-bold rounded-lg transition-all cursor-pointer shadow-xs"
+                                  className="px-3.5 py-1.5 bg-[#1D1D1F] hover:bg-black text-white text-xs font-bold rounded-xl transition-all cursor-pointer shadow-xs"
                                 >
                                   Send Quote
                                 </button>
@@ -1026,7 +1144,7 @@ export default function VendorDashboard() {
                                   onClick={() =>
                                     handleStatusChange(inq.id, "Confirmed")
                                   }
-                                  className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-lg transition-all cursor-pointer"
+                                  className="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition-all cursor-pointer"
                                 >
                                   Confirm
                                 </button>
@@ -1043,82 +1161,101 @@ export default function VendorDashboard() {
           )}
 
           {/* ======================================================== */}
-          {/* TAB 3: BOOKED WEDDINGS CALENDAR */}
+          {/* TAB 3: BOOKED WEDDINGS CALENDAR (FULL WIDTH GRID) */}
           {/* ======================================================== */}
           {activeTab === "calendar" && (
             <div className="space-y-6">
-              <div className="bg-white p-6 rounded-3xl border border-[#EFE5E7] shadow-xs flex justify-between items-center">
+              <div className="bg-white p-7 rounded-3xl border border-[#EFE5E7] shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <h2 className="text-xl font-bold font-playfair text-[#1D1D1F]">
+                  <h2 className="text-2xl font-bold font-playfair text-[#1D1D1F]">
                     Confirmed Wedding Calendar (2026/2027)
                   </h2>
                   <p className="text-xs text-gray-500 mt-0.5">
-                    12 confirmed weddings with team assignments and deliverables
+                    12 confirmed celebrations with crew assignments & deliverables schedule
                   </p>
                 </div>
                 <button
                   type="button"
-                  onClick={() => toast.success("Synced with Google & Apple Calendar!")}
-                  className="px-4 py-2 bg-[#FFF0F3] text-[#CF9585] border border-[#FAD7E0] text-xs font-bold rounded-xl hover:bg-[#ffe1e8] transition-all cursor-pointer"
+                  onClick={() =>
+                    toast.success("Synced with Google & Apple Calendar!")
+                  }
+                  className="px-5 py-2.5 bg-[#FFF0F3] text-[#CF9585] border border-[#FAD7E0] text-xs font-bold rounded-xl hover:bg-[#ffe1e8] transition-all cursor-pointer shadow-2xs"
                 >
-                  📅 Sync with Google Calendar
+                  📅 Sync with External Calendars
                 </button>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                 {inquiries
                   .filter((i) => i.status === "Confirmed")
                   .map((wedding) => (
                     <div
                       key={wedding.id}
-                      className="bg-white p-6 rounded-3xl border border-[#EFE5E7] shadow-xs hover:shadow-md transition-all space-y-4"
+                      className="bg-white p-7 rounded-3xl border border-[#EFE5E7] shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 space-y-4 flex flex-col justify-between"
                     >
-                      <div className="flex justify-between items-start">
-                        <div>
-                          <span className="px-2.5 py-0.5 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-full">
+                      <div className="space-y-3">
+                        <div className="flex justify-between items-start">
+                          <span className="px-3 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-full">
                             ✓ Confirmed Booking
                           </span>
-                          <h3 className="text-lg font-bold font-manrope text-[#1D1D1F] mt-2">
+                          <div className="text-right">
+                            <span className="text-xs font-bold text-gray-400 block">
+                              Event Date
+                            </span>
+                            <p className="text-sm font-bold text-[#CF9585]">
+                              {wedding.date}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div>
+                          <h3 className="text-xl font-bold font-manrope text-[#1D1D1F]">
                             {wedding.couple}
                           </h3>
-                          <p className="text-xs text-gray-500">{wedding.location}</p>
+                          <p className="text-xs text-gray-500 mt-0.5">
+                            📍 {wedding.location}
+                          </p>
                         </div>
-                        <div className="text-right">
-                          <span className="text-xs font-bold text-gray-400">Date</span>
-                          <p className="text-sm font-bold text-[#CF9585]">{wedding.date}</p>
-                        </div>
-                      </div>
 
-                      <div className="p-3.5 bg-gray-50 rounded-2xl space-y-1.5 text-xs">
-                        <div className="flex justify-between">
-                          <span className="text-gray-500">Service:</span>
-                          <span className="font-semibold text-gray-800">{wedding.service}</span>
+                        <div className="p-4 bg-gray-50 rounded-2xl space-y-2 text-xs">
+                          <div className="flex justify-between">
+                            <span className="text-gray-500">Service:</span>
+                            <span className="font-semibold text-gray-800 text-right">
+                              {wedding.service}
+                            </span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-500">Contract Value:</span>
+                            <span className="font-bold text-[#1D1D1F]">
+                              {wedding.budget}
+                            </span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-500">Guest Count:</span>
+                            <span className="font-semibold text-gray-800">
+                              {wedding.guestCount}
+                            </span>
+                          </div>
                         </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-500">Contract Budget:</span>
-                          <span className="font-bold text-[#1D1D1F]">{wedding.budget}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-500">Guest Count:</span>
-                          <span className="font-semibold text-gray-800">{wedding.guestCount}</span>
-                        </div>
-                      </div>
 
-                      {/* Deliverables Checklist */}
-                      <div className="space-y-2 pt-2 border-t border-gray-100">
-                        <span className="text-xs font-bold text-gray-600">Production Milestones:</span>
-                        <div className="space-y-1.5 text-xs text-gray-600">
-                          <div className="flex items-center gap-2">
-                            <span className="text-emerald-500 font-bold">✓</span>
-                            <span>Pre-wedding shot list & timeline finalized</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="text-emerald-500 font-bold">✓</span>
-                            <span>Cinematography & Drone crew booked</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="text-amber-500 font-bold">⏳</span>
-                            <span>Event shooting & 4K raw backup</span>
+                        {/* Deliverables Checklist */}
+                        <div className="space-y-2 pt-2 border-t border-gray-100">
+                          <span className="text-xs font-bold text-gray-600">
+                            Milestone Deliverables:
+                          </span>
+                          <div className="space-y-1.5 text-xs text-gray-600">
+                            <div className="flex items-center gap-2">
+                              <span className="text-emerald-500 font-bold">✓</span>
+                              <span>Pre-event shot list finalized</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-emerald-500 font-bold">✓</span>
+                              <span>Crew & Drone Pilot reserved</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-amber-500 font-bold">⏳</span>
+                              <span>Day-of shooting & raw 4K cloud backup</span>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1129,9 +1266,9 @@ export default function VendorDashboard() {
                           setActiveInquiryForBrief(wedding);
                           setBriefModalOpen(true);
                         }}
-                        className="w-full py-2.5 bg-[#FAF5F6] hover:bg-[#f3e6e8] text-[#1D1D1F] text-xs font-bold rounded-xl transition-all cursor-pointer"
+                        className="w-full py-3 bg-[#FAF5F6] hover:bg-[#f3e6e8] text-[#1D1D1F] text-xs font-bold rounded-xl transition-all cursor-pointer shadow-2xs mt-3"
                       >
-                        View Event Call Sheet & Contact
+                        View Call Sheet & Contact
                       </button>
                     </div>
                   ))}
@@ -1140,72 +1277,78 @@ export default function VendorDashboard() {
           )}
 
           {/* ======================================================== */}
-          {/* TAB 4: PACKAGES & PRICING */}
+          {/* TAB 4: PACKAGES & PRICING (WIDE 3-4 COLUMNS) */}
           {/* ======================================================== */}
           {activeTab === "packages" && (
             <div className="space-y-6">
-              <div className="bg-white p-6 rounded-3xl border border-[#EFE5E7] shadow-xs flex justify-between items-center">
+              <div className="bg-white p-7 rounded-3xl border border-[#EFE5E7] shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <h2 className="text-xl font-bold font-playfair text-[#1D1D1F]">
-                    Service Packages & Transparent Pricing
+                  <h2 className="text-2xl font-bold font-playfair text-[#1D1D1F]">
+                    Service Packages & Published Pricing
                   </h2>
                   <p className="text-xs text-gray-500 mt-0.5">
-                    Couples can browse and directly request quotes for these packages
+                    Couples can browse and directly book these packages from your public profile
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => setNewPackageModalOpen(true)}
-                  className="px-4 py-2 bg-[#1D1D1F] hover:bg-black text-white text-xs font-bold rounded-xl transition-all cursor-pointer shadow-xs"
+                  className="px-5 py-2.5 bg-[#1D1D1F] hover:bg-black text-white text-xs font-bold rounded-xl transition-all cursor-pointer shadow-md flex items-center gap-1.5"
                 >
-                  + Add New Package
+                  <span>💼</span> + Add New Package
                 </button>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                 {packages.map((pkg) => (
                   <div
                     key={pkg.id}
-                    className="bg-white p-6 rounded-3xl border border-[#EFE5E7] shadow-xs flex flex-col justify-between hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                    className="bg-white p-7 rounded-3xl border border-[#EFE5E7] shadow-xs flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                   >
                     <div>
                       <div className="flex justify-between items-center mb-3">
-                        <span className="px-2.5 py-1 bg-[#FFF0F3] text-[#CF9585] text-xs font-bold rounded-full">
+                        <span className="px-3 py-1 bg-[#FFF0F3] text-[#CF9585] text-xs font-bold rounded-full">
                           {pkg.badge}
                         </span>
                         <span className="text-xs font-semibold text-emerald-600">
-                          ● Published
+                          ● Published Live
                         </span>
                       </div>
 
-                      <h3 className="text-lg font-bold font-manrope text-[#1D1D1F] leading-snug">
+                      <h3 className="text-xl font-bold font-manrope text-[#1D1D1F] leading-snug">
                         {pkg.title}
                       </h3>
-                      <div className="text-2xl font-bold text-[#CF9585] my-2">
+                      <div className="text-3xl font-bold text-[#CF9585] my-3">
                         {pkg.price}
                       </div>
-                      <p className="text-xs text-gray-500 mb-4">{pkg.description}</p>
+                      <p className="text-xs text-gray-500 mb-5 leading-relaxed">
+                        {pkg.description}
+                      </p>
 
-                      <div className="space-y-2 pt-3 border-t border-gray-100">
-                        <span className="text-xs font-bold text-gray-600">
-                          What's Included:
+                      <div className="space-y-2.5 pt-4 border-t border-gray-100">
+                        <span className="text-xs font-bold text-gray-700">
+                          Deliverables Included:
                         </span>
-                        <ul className="space-y-1.5 text-xs text-gray-600">
+                        <ul className="space-y-2 text-xs text-gray-600">
                           {pkg.deliverables.map((item, idx) => (
                             <li key={idx} className="flex items-start gap-2">
-                              <span className="text-[#CF9585] font-bold">✓</span>
-                              <span>{item}</span>
+                              <span className="text-[#CF9585] font-bold text-sm">
+                                ✓
+                              </span>
+                              <span className="leading-tight">{item}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
                     </div>
 
-                    <div className="pt-6 mt-4 border-t border-gray-100 flex gap-2">
+                    <div className="pt-6 mt-6 border-t border-gray-100 flex gap-2">
                       <button
                         type="button"
-                        onClick={() => toast.success(`Package "${pkg.title}" updated!`)}
-                        className="w-full py-2 bg-gray-50 hover:bg-gray-100 text-xs font-bold text-gray-800 rounded-xl transition-all cursor-pointer"
+                        onClick={() =>
+                          toast.success(`Package "${pkg.title}" updated!`)
+                        }
+                        className="w-full py-2.5 bg-gray-50 hover:bg-gray-100 text-xs font-bold text-gray-800 rounded-xl transition-all cursor-pointer"
                       >
                         Edit Details
                       </button>
@@ -1217,57 +1360,59 @@ export default function VendorDashboard() {
           )}
 
           {/* ======================================================== */}
-          {/* TAB 5: PORTFOLIO SHOWCASE */}
+          {/* TAB 5: PORTFOLIO SHOWCASE (WIDE 4 COLUMNS) */}
           {/* ======================================================== */}
           {activeTab === "portfolio" && (
             <div className="space-y-6">
-              <div className="bg-white p-6 rounded-3xl border border-[#EFE5E7] shadow-xs flex justify-between items-center">
+              <div className="bg-white p-7 rounded-3xl border border-[#EFE5E7] shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <h2 className="text-xl font-bold font-playfair text-[#1D1D1F]">
+                  <h2 className="text-2xl font-bold font-playfair text-[#1D1D1F]">
                     Portfolio & Visual Showcase ({portfolioItems.length} Photos)
                   </h2>
                   <p className="text-xs text-gray-500 mt-0.5">
-                    High-resolution images shown on your public VowSync profile
+                    High-resolution photos and cinema stills displayed on your verified public profile
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => setUploadMediaModalOpen(true)}
-                  className="px-4 py-2 bg-[#EBC9D4] hover:bg-[#e0b2c0] text-[#1D1D1F] text-xs font-bold rounded-xl transition-all cursor-pointer shadow-xs"
+                  className="px-5 py-2.5 bg-[#EBC9D4] hover:bg-[#e0b2c0] text-[#1D1D1F] text-xs font-bold rounded-xl transition-all cursor-pointer shadow-md flex items-center gap-1.5"
                 >
-                  📸 + Upload Media
+                  <span>📸</span> + Upload Media
                 </button>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
                 {portfolioItems.map((item) => (
                   <div
                     key={item.id}
-                    className="bg-white rounded-3xl border border-[#EFE5E7] shadow-xs overflow-hidden group hover:shadow-lg transition-all"
+                    className="bg-white rounded-3xl border border-[#EFE5E7] shadow-xs overflow-hidden group hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
                   >
-                    <div className="h-56 relative overflow-hidden bg-gray-100">
+                    <div className="h-60 relative overflow-hidden bg-gray-100">
                       <img
                         src={item.imageUrl}
                         alt={item.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full text-[11px] font-bold text-white">
+                      <div className="absolute top-3 left-3 bg-black/65 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-bold text-white shadow-xs">
                         {item.category}
                       </div>
                     </div>
-                    <div className="p-4 flex justify-between items-center">
+                    <div className="p-4 flex justify-between items-center bg-white">
                       <div>
-                        <h4 className="font-bold text-xs text-[#1D1D1F]">
+                        <h4 className="font-bold text-xs text-[#1D1D1F] truncate max-w-[170px]">
                           {item.title}
                         </h4>
                         <span className="text-[11px] text-gray-400">
-                          👀 {item.views} couple views
+                          👀 {item.views} views
                         </span>
                       </div>
                       <button
                         type="button"
-                        onClick={() => toast.success("Media deleted from portfolio")}
-                        className="p-1.5 text-gray-400 hover:text-red-500 rounded-lg transition-colors cursor-pointer"
+                        onClick={() =>
+                          toast.success("Media item removed from portfolio")
+                        }
+                        className="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-xl transition-colors cursor-pointer"
                         title="Delete"
                       >
                         🗑️
@@ -1284,22 +1429,22 @@ export default function VendorDashboard() {
           {/* ======================================================== */}
           {activeTab === "reviews" && (
             <div className="space-y-6">
-              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-[#EFE5E7] shadow-xs flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+              <div className="bg-white p-7 sm:p-8 rounded-3xl border border-[#EFE5E7] shadow-xs flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                 <div>
-                  <h2 className="text-xl font-bold font-playfair text-[#1D1D1F]">
-                    Client Reviews & Feedback (★ 4.9 / 5.0)
+                  <h2 className="text-2xl font-bold font-playfair text-[#1D1D1F]">
+                    Client Reviews & Verified Reputation
                   </h2>
                   <p className="text-xs text-gray-500 mt-0.5">
                     98 verified couple reviews • 100% positive recommendation rate
                   </p>
                 </div>
-                <div className="flex items-center gap-2 text-2xl text-amber-500">
+                <div className="flex items-center gap-2 text-3xl text-amber-500 bg-[#FFF9F5] px-5 py-3 rounded-2xl border border-[#E6C8A5]">
                   <span>★</span>
                   <span>★</span>
                   <span>★</span>
                   <span>★</span>
                   <span>★</span>
-                  <span className="text-lg font-bold text-[#1D1D1F] ml-2">
+                  <span className="text-xl font-bold text-[#1D1D1F] ml-2">
                     4.9 / 5.0
                   </span>
                 </div>
@@ -1309,7 +1454,7 @@ export default function VendorDashboard() {
                 {reviews.map((rev) => (
                   <div
                     key={rev.id}
-                    className="bg-white p-6 rounded-3xl border border-[#EFE5E7] shadow-xs space-y-4"
+                    className="bg-white p-7 rounded-3xl border border-[#EFE5E7] shadow-xs space-y-4 hover:shadow-md transition-all"
                   >
                     <div className="flex justify-between items-start">
                       <div>
@@ -1325,16 +1470,16 @@ export default function VendorDashboard() {
                       </div>
                     </div>
 
-                    <p className="text-sm text-gray-700 italic bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                    <p className="text-sm text-gray-700 italic bg-gray-50 p-4 rounded-2xl border border-gray-100 leading-relaxed">
                       "{rev.comment}"
                     </p>
 
                     {rev.reply ? (
-                      <div className="bg-[#FFF9F5] p-3.5 rounded-2xl border border-[#E6C8A5] ml-4 text-xs">
+                      <div className="bg-[#FFF9F5] p-4 rounded-2xl border border-[#E6C8A5] ml-4 text-xs">
                         <span className="font-bold text-[#1D1D1F]">
-                          Luxe Memories Studio (Your Reply):
+                          Luxe Memories Studio (Your Public Reply):
                         </span>
-                        <p className="text-gray-600 mt-0.5">{rev.reply}</p>
+                        <p className="text-gray-600 mt-1">{rev.reply}</p>
                       </div>
                     ) : (
                       <div className="pt-2">
@@ -1351,11 +1496,11 @@ export default function VendorDashboard() {
                             name="replyText"
                             type="text"
                             placeholder="Write a public thank you reply..."
-                            className="flex-1 px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-xs outline-none focus:border-[#CF9585]"
+                            className="flex-1 px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs outline-none focus:border-[#CF9585]"
                           />
                           <button
                             type="submit"
-                            className="px-4 py-2 bg-[#1D1D1F] text-white text-xs font-bold rounded-xl hover:bg-black transition-all cursor-pointer shadow-xs"
+                            className="px-5 py-2.5 bg-[#1D1D1F] text-white text-xs font-bold rounded-xl hover:bg-black transition-all cursor-pointer shadow-xs"
                           >
                             Reply
                           </button>
@@ -1373,28 +1518,28 @@ export default function VendorDashboard() {
           {/* ======================================================== */}
           {activeTab === "settings" && (
             <div className="space-y-6">
-              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-[#EFE5E7] shadow-xs space-y-6">
+              <div className="bg-white p-7 sm:p-9 rounded-3xl border border-[#EFE5E7] shadow-xs space-y-6">
                 <div>
-                  <h2 className="text-xl font-bold font-playfair text-[#1D1D1F]">
+                  <h2 className="text-2xl font-bold font-playfair text-[#1D1D1F]">
                     Business Profile & Payout Settings
                   </h2>
                   <p className="text-xs text-gray-500 mt-0.5">
-                    Update your business address, contact details, and bank account for automated couple deposits
+                    Update business address, contact details, and bank account for automated couple advances
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs font-manrope">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs font-manrope">
                   <div className="space-y-1.5">
                     <label className="font-bold text-gray-700">Studio / Business Name</label>
                     <input
                       defaultValue="Luxe Memories Photography Studio"
-                      className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#CF9585]"
+                      className="w-full p-3.5 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#CF9585]"
                     />
                   </div>
 
                   <div className="space-y-1.5">
                     <label className="font-bold text-gray-700">Primary Category</label>
-                    <select className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#CF9585]">
+                    <select className="w-full p-3.5 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#CF9585]">
                       <option>Photography & Cinema Studio</option>
                       <option>Reception Venue & Banquets</option>
                       <option>Floral & Stage Decor</option>
@@ -1407,7 +1552,7 @@ export default function VendorDashboard() {
                     <label className="font-bold text-gray-700">Business Phone / WhatsApp</label>
                     <input
                       defaultValue="+880 1812-987654"
-                      className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#CF9585]"
+                      className="w-full p-3.5 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#CF9585]"
                     />
                   </div>
 
@@ -1415,7 +1560,7 @@ export default function VendorDashboard() {
                     <label className="font-bold text-gray-700">Studio Location / City</label>
                     <input
                       defaultValue="Gulshan-2, Dhaka, Bangladesh"
-                      className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#CF9585]"
+                      className="w-full p-3.5 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#CF9585]"
                     />
                   </div>
 
@@ -1423,7 +1568,7 @@ export default function VendorDashboard() {
                     <label className="font-bold text-gray-700">Bank Account / Routing Number</label>
                     <input
                       defaultValue="Standard Chartered Bank • Account ending in 8892"
-                      className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#CF9585]"
+                      className="w-full p-3.5 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#CF9585]"
                     />
                   </div>
 
@@ -1431,7 +1576,7 @@ export default function VendorDashboard() {
                     <label className="font-bold text-gray-700">bKash Merchant / Direct Wallet</label>
                     <input
                       defaultValue="01711-223344 (Merchant)"
-                      className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#CF9585]"
+                      className="w-full p-3.5 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#CF9585]"
                     />
                   </div>
                 </div>
@@ -1439,8 +1584,10 @@ export default function VendorDashboard() {
                 <div className="pt-4 border-t border-gray-100 flex justify-end gap-3">
                   <button
                     type="button"
-                    onClick={() => toast.success("Business settings saved successfully!")}
-                    className="px-6 py-3 bg-[#1D1D1F] hover:bg-black text-white text-xs font-bold rounded-xl transition-all cursor-pointer shadow-xs"
+                    onClick={() =>
+                      toast.success("Business settings saved successfully!")
+                    }
+                    className="px-7 py-3.5 bg-[#1D1D1F] hover:bg-black text-white text-xs font-bold rounded-xl transition-all cursor-pointer shadow-md"
                   >
                     Save Changes
                   </button>
@@ -1478,9 +1625,14 @@ export default function VendorDashboard() {
               </button>
             </div>
 
-            <form onSubmit={handleSendQuote} className="space-y-4 text-xs font-manrope">
+            <form
+              onSubmit={handleSendQuote}
+              className="space-y-4 text-xs font-manrope"
+            >
               <div className="space-y-1.5">
-                <label className="font-bold text-gray-700">Requested Package / Service</label>
+                <label className="font-bold text-gray-700">
+                  Requested Package / Service
+                </label>
                 <input
                   disabled
                   value={activeInquiryForQuote.service}
@@ -1489,7 +1641,9 @@ export default function VendorDashboard() {
               </div>
 
               <div className="space-y-1.5">
-                <label className="font-bold text-gray-700">Custom Quoted Total Price ($ USD)</label>
+                <label className="font-bold text-gray-700">
+                  Custom Quoted Total Price ($ USD)
+                </label>
                 <input
                   type="number"
                   placeholder="e.g. 6200"
@@ -1501,7 +1655,9 @@ export default function VendorDashboard() {
               </div>
 
               <div className="space-y-1.5">
-                <label className="font-bold text-gray-700">Personalized Note & Deliverables Included</label>
+                <label className="font-bold text-gray-700">
+                  Personalized Note & Deliverables Included
+                </label>
                 <textarea
                   rows="3"
                   placeholder="e.g. We are thrilled to cover your wedding! This quote includes 2 senior cinematographers, drone pilot, raw 4K footage on wooden drive, and an edited teaser in 7 days."
@@ -1566,29 +1722,41 @@ export default function VendorDashboard() {
               <div className="grid grid-cols-2 gap-3 p-3.5 bg-gray-50 rounded-2xl">
                 <div>
                   <span className="text-gray-400 block">Target Date</span>
-                  <span className="font-bold text-[#1D1D1F]">{activeInquiryForBrief.date}</span>
+                  <span className="font-bold text-[#1D1D1F]">
+                    {activeInquiryForBrief.date}
+                  </span>
                 </div>
                 <div>
                   <span className="text-gray-400 block">Estimated Budget</span>
-                  <span className="font-bold text-[#CF9585]">{activeInquiryForBrief.budget}</span>
+                  <span className="font-bold text-[#CF9585]">
+                    {activeInquiryForBrief.budget}
+                  </span>
                 </div>
                 <div>
                   <span className="text-gray-400 block">Guest Count</span>
-                  <span className="font-bold text-[#1D1D1F]">{activeInquiryForBrief.guestCount}</span>
+                  <span className="font-bold text-[#1D1D1F]">
+                    {activeInquiryForBrief.guestCount}
+                  </span>
                 </div>
                 <div>
                   <span className="text-gray-400 block">Status</span>
-                  <span className="font-bold text-emerald-600">{activeInquiryForBrief.status}</span>
+                  <span className="font-bold text-emerald-600">
+                    {activeInquiryForBrief.status}
+                  </span>
                 </div>
               </div>
 
               <div className="space-y-1">
                 <span className="font-bold text-gray-700">Venue / Location:</span>
-                <p className="text-gray-800 bg-gray-50 p-3 rounded-xl">{activeInquiryForBrief.location}</p>
+                <p className="text-gray-800 bg-gray-50 p-3 rounded-xl">
+                  {activeInquiryForBrief.location}
+                </p>
               </div>
 
               <div className="space-y-1">
-                <span className="font-bold text-gray-700">Couple's Custom Requirements:</span>
+                <span className="font-bold text-gray-700">
+                  Couple's Custom Requirements:
+                </span>
                 <p className="text-gray-800 bg-[#FFF9F5] border border-[#E6C8A5] p-3.5 rounded-xl italic">
                   "{activeInquiryForBrief.notes}"
                 </p>
@@ -1640,7 +1808,10 @@ export default function VendorDashboard() {
               </button>
             </div>
 
-            <form onSubmit={handleAddPackage} className="space-y-4 text-xs font-manrope">
+            <form
+              onSubmit={handleAddPackage}
+              className="space-y-4 text-xs font-manrope"
+            >
               <div className="space-y-1.5">
                 <label className="font-bold text-gray-700">Package Title</label>
                 <input
@@ -1696,7 +1867,9 @@ export default function VendorDashboard() {
               </div>
 
               <div className="space-y-1.5">
-                <label className="font-bold text-gray-700">Deliverables (1 item per line)</label>
+                <label className="font-bold text-gray-700">
+                  Deliverables (1 item per line)
+                </label>
                 <textarea
                   rows="3"
                   placeholder="2 Senior Cinematographers&#10;4K Teaser Reel&#10;100-page Leather Photobook"
@@ -1755,7 +1928,10 @@ export default function VendorDashboard() {
               </button>
             </div>
 
-            <form onSubmit={handleUploadMedia} className="space-y-4 text-xs font-manrope">
+            <form
+              onSubmit={handleUploadMedia}
+              className="space-y-4 text-xs font-manrope"
+            >
               <div className="space-y-1.5">
                 <label className="font-bold text-gray-700">Photo / Reel Title</label>
                 <input
@@ -1788,7 +1964,9 @@ export default function VendorDashboard() {
               </div>
 
               <div className="space-y-1.5">
-                <label className="font-bold text-gray-700">Image Web URL (or leave blank for high-res stock sample)</label>
+                <label className="font-bold text-gray-700">
+                  Image Web URL (or leave blank for high-res stock sample)
+                </label>
                 <input
                   placeholder="https://images.unsplash.com/..."
                   value={newMedia.imageUrl}
