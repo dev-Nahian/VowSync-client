@@ -2,54 +2,15 @@ import React from "react";
 import Container from "../common/Container";
 import { Link } from "react-router-dom";
 import RecentlyViewVextor from "@/assets/Images/vectors/recently-view-vector.png";
-import RecentViewImageOne from "@/assets/Images/recent-view-one.png";
-import StarIconSVG from "../SVG/StarIconSVG";
 import LocationIconSVG from "../SVG/LocationIconSVG";
-import ButtonIconDarkSVG from "../SVG/ButtonIconDarkSVG";
-
-const vendorData = [
-  {
-    id: 1,
-    name: "Bella Vista Grand Ballroom",
-    price: "$$$",
-    rating: 4.9,
-    reviews: 142,
-    location: "Gulshan, Dhaka",
-    category: "Reception Venue",
-    description:
-      "Award-winning luxury ballroom with grand crystal chandeliers, open-air garden terrace, and 800-guest capacity.",
-    tags: ["Bridal Suite", "Valet Parking", "Catering Kitchen"],
-    image: RecentViewImageOne,
-  },
-  {
-    id: 2,
-    name: "Flora & Bloom Event Styling",
-    price: "$$",
-    rating: 4.8,
-    reviews: 98,
-    location: "Banani, Dhaka",
-    category: "Floral & Stage Decor",
-    description:
-      "Signature bespoke floral canopies, fairy-light aisles, and thematic photo-op installations.",
-    tags: ["Custom Mandaps", "Imported Flowers", "3D Rendering"],
-    image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    id: 3,
-    name: "Luxe Couture Bridal Studio",
-    price: "$$$",
-    rating: 5.0,
-    reviews: 215,
-    location: "Dhanmondi, Dhaka",
-    category: "Bridal Fashion & MUA",
-    description:
-      "Handcrafted bridal lehengas, bespoke sherwanis, and HD bridal makeup trials with senior celebrity artists.",
-    tags: ["Custom Tailoring", "Jewelry Pairings", "Bridal Trials"],
-    image: "https://images.unsplash.com/photo-1594465919760-441fe5908ab0?auto=format&fit=crop&w=600&q=80",
-  },
-];
+import { useSelector } from "react-redux";
 
 export default function HomeFeaturedWedding() {
+  const vendorsList = useSelector((state) => state.vendors?.list || []);
+
+  // Display the top 3 vendors (newly registered vendors will automatically appear first!)
+  const displayVendors = vendorsList.slice(0, 3);
+
   return (
     <section className="py-20 md:py-28 bg-[#FFF9F5] relative font-manrope">
       <Container>
@@ -72,9 +33,13 @@ export default function HomeFeaturedWedding() {
         </div>
 
         <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {vendorData.map((item) => (
+          {displayVendors.map((item) => (
             <div
-              className="bg-white border border-[#E6C8A5] rounded-3xl shadow-md overflow-hidden p-6 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300"
+              className={`bg-white rounded-3xl overflow-hidden p-6 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 ${
+                item.isNewlyRegistered
+                  ? "border-2 border-[#CF9585] shadow-lg ring-2 ring-[#FAD7E0]"
+                  : "border border-[#E6C8A5] shadow-md"
+              }`}
               key={item.id}
             >
               <div>
@@ -87,6 +52,11 @@ export default function HomeFeaturedWedding() {
                   <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-white font-manrope">
                     {item.category}
                   </div>
+                  {item.isNewlyRegistered && (
+                    <div className="absolute top-3 right-3 bg-gradient-to-r from-[#CF9585] to-[#EBC9D4] text-[#1D1D1F] px-3 py-1 rounded-full text-xs font-bold shadow-md flex items-center gap-1 animate-pulse">
+                      <span>✨ Newly Joined</span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="mt-5">
@@ -95,7 +65,7 @@ export default function HomeFeaturedWedding() {
                       {item.name}
                     </h3>
                     <span className="text-[#CF9585] font-bold text-base font-manrope">
-                      {item.price}
+                      {item.priceTier || "$$$"}
                     </span>
                   </div>
 
@@ -103,33 +73,42 @@ export default function HomeFeaturedWedding() {
                     <div className="flex items-center gap-1">
                       <span className="text-amber-500 text-sm">★</span>
                       <span className="text-[#1D1D1F] font-bold text-xs font-manrope">
-                        {item.rating}
+                        {item.rating || 5.0}
                       </span>
-                      <span>({item.reviews} reviews)</span>
+                      <span>({item.reviewsCount || item.reviews || 1} reviews)</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <div className="size-4">
                         <LocationIconSVG />
                       </div>
                       <span className="text-[#6A7283] font-manrope">
-                        {item.location}
+                        {item.city || item.location || "Dhaka"}
                       </span>
                     </div>
                   </div>
 
-                  <p className="text-[#4F586D] text-xs leading-relaxed font-manrope">
+                  <p className="text-[#4F586D] text-xs leading-relaxed font-manrope line-clamp-2">
                     {item.description}
                   </p>
 
                   <div className="flex flex-wrap gap-2 my-4">
-                    {item.tags.map((tag, i) => (
-                      <span
-                        key={i}
-                        className="px-2.5 py-0.5 rounded-md bg-[#FAF5F6] text-[#CF9585] text-[11px] font-semibold font-manrope"
-                      >
-                        ✓ {tag}
-                      </span>
-                    ))}
+                    {item.features
+                      ? item.features.slice(0, 2).map((tag, i) => (
+                          <span
+                            key={i}
+                            className="px-2.5 py-0.5 rounded-md bg-[#FAF5F6] text-[#CF9585] text-[11px] font-semibold font-manrope"
+                          >
+                            ✓ {tag}
+                          </span>
+                        ))
+                      : item.tags?.slice(0, 2).map((tag, i) => (
+                          <span
+                            key={i}
+                            className="px-2.5 py-0.5 rounded-md bg-[#FAF5F6] text-[#CF9585] text-[11px] font-semibold font-manrope"
+                          >
+                            ✓ {tag}
+                          </span>
+                        ))}
                   </div>
                 </div>
               </div>

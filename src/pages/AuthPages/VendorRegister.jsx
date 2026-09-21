@@ -3,6 +3,8 @@ import Container from "@/components/common/Container";
 import CommonButton from "@/components/common/CommonButton";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addRegisteredVendor, getCategoryDefaultImage } from "@/Redux/Slices/vendorsSlice";
 import toast from "react-hot-toast";
 import VendorLoginImageOne from "@/assets/Images/Auth/vendor-login-1.png";
 import VendorLoginImageTwo from "@/assets/Images/Auth/vendor-login-2.png";
@@ -22,6 +24,7 @@ import {
 
 export default function VendorRegister() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [category, setCategory] = useState("Photography & Cinema");
   const [priceTier, setPriceTier] = useState("$$$ (Premium)");
 
@@ -31,44 +34,73 @@ export default function VendorRegister() {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      businessName: "Luxe Memories Photography",
+      businessName: "Luxe Memories Photography Studio",
       contactName: "David Miller",
       email: "david@luxememories.com",
-      phone: "+1 (555) 345-6789",
+      phone: "+880 1812-987654",
       city: "Dhaka",
       experience: "5+ Years",
       website: "https://luxememories.com",
-      description: "Award-winning wedding photography and cinematic storytelling for modern couples.",
+      description:
+        "Award-winning fine-art wedding photography and cinematic 4K storytelling for modern celebrations.",
     },
   });
 
   const categories = [
-    "Venue / Resort / Banquet",
+    "Venues & Banquets",
     "Photography & Cinema",
-    "Catering & Gourmet Cuisine",
-    "Floral & Stage Decoration",
-    "Bridal Makeup & Hair Styling",
-    "Bridal Wear & Groom Attire",
-    "Music, DJ & Live Entertainment",
-    "Wedding Planning & Coordination",
-    "Cake & Gourmet Confectionery",
-    "Invitations & Calligraphy",
+    "Catering & Cuisine",
+    "Floral & Decor",
+    "Makeup & Hair",
+    "Bridal Wear & Attire",
+    "DJ & Entertainment",
+    "Wedding Planners",
+    "Cakes & Desserts",
   ];
 
   const onSubmit = (data) => {
-    const vendorData = {
-      ...data,
-      category,
-      priceTier,
+    const rawTier = priceTier.split(" ")[0] || "$$$";
+    const newVendor = {
+      id: `v_reg_${Date.now()}`,
+      name: data.businessName,
+      category: category,
+      priceTier: rawTier,
+      priceRange: `Starting from ${rawTier === "$" ? "$800" : rawTier === "$$" ? "$2,500" : rawTier === "$$$" ? "$4,800" : "$9,500"}`,
+      rating: 5.0,
+      reviewsCount: 1,
+      city: data.city || "Dhaka",
+      address: `${data.city || "Dhaka"}, Bangladesh`,
+      capacity: "Flexible Capacity",
+      features: [
+        "Verified Partner",
+        "Direct Booking Available",
+        data.experience ? `${data.experience} Experience` : "5+ Years Experience",
+        "Custom Packages",
+      ],
+      image: getCategoryDefaultImage(category),
+      description:
+        data.description ||
+        "Award-winning wedding service provider dedicated to making your celebration unforgettable.",
+      isNewlyRegistered: true,
+      phone: data.phone,
+      email: data.email,
+      website: data.website,
       registeredAt: new Date().toISOString(),
     };
+
+    // Dispatch to Redux (which also syncs with localStorage)
+    dispatch(addRegisteredVendor(newVendor));
+
     try {
-      localStorage.setItem("wedelogy_vendor_profile", JSON.stringify(vendorData));
+      localStorage.setItem("wedelogy_vendor_profile", JSON.stringify(newVendor));
     } catch (e) {
       console.error(e);
     }
-    toast.success("🎉 Vendor Account Registered Successfully! Welcome to the Network.");
-    navigate("/vendor-dashboard");
+
+    toast.success(
+      `🎉 Welcome ${newVendor.name}! Your vendor card is now live on the homepage & browse directory!`
+    );
+    navigate("/browse-vendors");
   };
 
   return (
@@ -91,20 +123,20 @@ export default function VendorRegister() {
 
             <div className="w-full max-w-[420px] bg-white p-6 rounded-2xl border border-[#EFE5E7] shadow-xs">
               <h3 className="text-lg font-bold text-[#121117] font-manrope mb-3">
-                Why partner with Wedelogy?
+                Why partner with VowSync?
               </h3>
               <ul className="space-y-2.5 text-sm text-[#5B6477] font-manrope">
                 <li className="flex items-center gap-2">
-                  <span className="text-[#2B7A78]">✓</span> Connect with 10,000+ ready-to-book couples
+                  <span className="text-[#2B7A78]">✓</span> Instant showcase on Landing Page & Vendor Directory
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-[#2B7A78]">✓</span> Connect with 25,000+ active couples planning weddings
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="text-[#2B7A78]">✓</span> 0% commission on direct messaging inquiries
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-[#2B7A78]">✓</span> Premium analytics & review showcase badge
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-[#2B7A78]">✓</span> Seamless quote & contract management tools
+                  <span className="text-[#2B7A78]">✓</span> Dedicated Pro Vendor Dashboard & CRM tools
                 </li>
               </ul>
             </div>
@@ -120,7 +152,7 @@ export default function VendorRegister() {
                   Join as a Wedding Vendor
                 </h1>
                 <p className="text-[#5B6477] text-sm md:text-base font-manrope mt-1">
-                  Showcase your portfolio, receive genuine booking requests, and grow your wedding business.
+                  Publish your business profile, receive genuine couple booking requests, and grow your wedding clientele.
                 </p>
               </div>
 
@@ -132,15 +164,21 @@ export default function VendorRegister() {
                       Business / Studio Name *
                     </label>
                     <input
-                      {...register("businessName", { required: "Business name is required" })}
+                      {...register("businessName", {
+                        required: "Business name is required",
+                      })}
                       type="text"
                       placeholder="e.g. Royal Blooms Floral Design"
                       className={`px-4 py-2.5 rounded-xl border bg-white text-sm font-manrope focus:outline-none focus:ring-2 focus:ring-[#CF9585] ${
-                        errors.businessName ? "border-red-500" : "border-[#DADADA]"
+                        errors.businessName
+                          ? "border-red-500"
+                          : "border-[#DADADA]"
                       }`}
                     />
                     {errors.businessName && (
-                      <span className="text-red-500 text-xs">{errors.businessName.message}</span>
+                      <span className="text-red-500 text-xs">
+                        {errors.businessName.message}
+                      </span>
                     )}
                   </div>
 
@@ -173,11 +211,15 @@ export default function VendorRegister() {
                       Primary Contact Person *
                     </label>
                     <input
-                      {...register("contactName", { required: "Contact name is required" })}
+                      {...register("contactName", {
+                        required: "Contact name is required",
+                      })}
                       type="text"
                       placeholder="e.g. David Miller"
                       className={`px-4 py-2.5 rounded-xl border bg-white text-sm font-manrope focus:outline-none focus:ring-2 focus:ring-[#CF9585] ${
-                        errors.contactName ? "border-red-500" : "border-[#DADADA]"
+                        errors.contactName
+                          ? "border-red-500"
+                          : "border-[#DADADA]"
                       }`}
                     />
                   </div>
@@ -211,7 +253,9 @@ export default function VendorRegister() {
                     </label>
                     <div className="relative">
                       <input
-                        {...register("email", { required: "Email is required" })}
+                        {...register("email", {
+                          required: "Email is required",
+                        })}
                         type="email"
                         placeholder="contact@business.com"
                         className={`w-full px-4 py-2.5 pl-10 rounded-xl border bg-white text-sm font-manrope focus:outline-none focus:ring-2 focus:ring-[#CF9585] ${
@@ -231,9 +275,11 @@ export default function VendorRegister() {
                     </label>
                     <div className="relative">
                       <input
-                        {...register("phone", { required: "Phone is required" })}
+                        {...register("phone", {
+                          required: "Phone is required",
+                        })}
                         type="tel"
-                        placeholder="+1 (555) 000-0000"
+                        placeholder="+880 1812-000000"
                         className={`w-full px-4 py-2.5 pl-10 rounded-xl border bg-white text-sm font-manrope focus:outline-none focus:ring-2 focus:ring-[#CF9585] ${
                           errors.phone ? "border-red-500" : "border-[#DADADA]"
                         }`}
@@ -257,10 +303,18 @@ export default function VendorRegister() {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectGroup>
-                          <SelectItem value="$ (Budget Friendly)">$ (Budget Friendly)</SelectItem>
-                          <SelectItem value="$$ (Moderate)">$$ (Moderate)</SelectItem>
-                          <SelectItem value="$$$ (Premium)">$$$ (Premium)</SelectItem>
-                          <SelectItem value="$$$$ (Luxury / Haute)">$$$$ (Luxury / Haute)</SelectItem>
+                          <SelectItem value="$ (Budget Friendly)">
+                            $ (Budget Friendly)
+                          </SelectItem>
+                          <SelectItem value="$$ (Moderate)">
+                            $$ (Moderate)
+                          </SelectItem>
+                          <SelectItem value="$$$ (Premium)">
+                            $$$ (Premium)
+                          </SelectItem>
+                          <SelectItem value="$$$$ (Luxury / Haute)">
+                            $$$$ (Luxury / Haute)
+                          </SelectItem>
                         </SelectGroup>
                       </SelectContent>
                     </Select>
@@ -295,15 +349,21 @@ export default function VendorRegister() {
 
                 {/* Submit Action */}
                 <div className="pt-2">
-                  <CommonButton type="submit" className="w-full justify-center">
-                    Register as Vendor & Launch Profile
+                  <CommonButton
+                    type="submit"
+                    className="w-full justify-center"
+                  >
+                    Register Vendor & Publish Live Profile 🚀
                   </CommonButton>
                 </div>
 
                 <div className="text-center pt-2">
                   <span className="text-xs md:text-sm text-[#5B6477] font-manrope">
                     Already registered as a partner?{" "}
-                    <Link to="/auth/login" className="text-[#CF9585] font-bold underline hover:opacity-80">
+                    <Link
+                      to="/auth/login"
+                      className="text-[#CF9585] font-bold underline hover:opacity-80"
+                    >
                       Vendor Log In
                     </Link>
                   </span>

@@ -2,94 +2,68 @@ import React from "react";
 import Container from "../common/Container";
 import { Link } from "react-router-dom";
 import RecentlyViewVextor from "@/assets/Images/vectors/recently-view-vector.png";
-import RecentViewImageOne from "@/assets/Images/recent-view-one.png";
-import StarIconSVG from "../SVG/StarIconSVG";
 import LocationIconSVG from "../SVG/LocationIconSVG";
-import ButtonIconDarkSVG from "../SVG/ButtonIconDarkSVG";
-
-const cateringData = [
-  {
-    id: 1,
-    name: "Bella Vista Grand Ballroom",
-    price: "$$$",
-    rating: 4.9,
-    reviews: 127,
-    location: "Gulshan, Dhaka",
-    category: "Venue / Ballroom",
-    description:
-      "Award-winning luxury reception ballroom with crystal chandeliers and stunning garden view.",
-    tags: ["Bridal Suite", "Valet Parking", "Capacity: 700"],
-    image: RecentViewImageOne,
-  },
-  {
-    id: 2,
-    name: "Rustic Elegance Catering Studio",
-    price: "$$",
-    rating: 4.8,
-    reviews: 89,
-    location: "Banani, Dhaka",
-    category: "Gourmet Catering",
-    description:
-      "Timeless flavors with elegant plating. Renowned for signature Kacchi and live mocktail bars.",
-    tags: ["Halal Certified", "Live Stations", "Organic"],
-    image: "https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    id: 3,
-    name: "Evergreen Cinema & Photography",
-    price: "$$$",
-    rating: 5.0,
-    reviews: 203,
-    location: "Dhanmondi, Dhaka",
-    category: "Cinema & Photo",
-    description: "Fine-art storytelling and 4K aerial cinema crafted by international award-winning visualists.",
-    tags: ["4K Cinema", "Drone", "Same-Day Teaser"],
-    image: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=600&q=80",
-  },
-];
+import { useSelector } from "react-redux";
 
 export default function HomeRecentlyView() {
+  const vendorsList = useSelector((state) => state.vendors?.list || []);
+  const displayVendors = vendorsList.slice(0, 3);
+
   return (
     <section className="py-16 md:py-24 bg-[#FFF9F5] relative">
       <Container>
         <div className="w-full flex items-center justify-between gap-10">
-          <h3 className="text-[#1D1D1F] text-3xl md:text-4xl font-salsa">
-            Featured Verified Vendors
-          </h3>
+          <div>
+            <span className="text-xs font-bold uppercase tracking-wider text-[#CF9585]">
+              Curated Partners
+            </span>
+            <h3 className="text-[#1D1D1F] text-3xl md:text-4xl font-salsa mt-1">
+              Featured Verified Vendors
+            </h3>
+          </div>
 
           <Link
             to="/browse-vendors"
-            className="text-[#CF9585] text-lg md:text-2xl font-salsa underline hover:opacity-80 transition-all"
+            className="text-[#CF9585] text-lg md:text-2xl font-salsa underline hover:opacity-80 transition-all cursor-pointer"
           >
             View all
           </Link>
         </div>
 
         <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-          {cateringData.map((item, index) => (
+          {displayVendors.map((item, index) => (
             <div
-              className="bg-white border border-[#E6C8A5] rounded-3xl shadow-md overflow-hidden p-6 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-              key={index}
+              className={`bg-white rounded-3xl shadow-md overflow-hidden p-6 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ${
+                item.isNewlyRegistered
+                  ? "border-2 border-[#CF9585] ring-2 ring-[#FAD7E0]"
+                  : "border border-[#E6C8A5]"
+              }`}
+              key={item.id || index}
             >
               <div>
                 <div className="relative rounded-2xl overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-full h-56 object-cover"
+                    className="w-full h-56 object-cover hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-white font-manrope">
                     {item.category}
                   </div>
+                  {item.isNewlyRegistered && (
+                    <div className="absolute top-3 right-3 bg-gradient-to-r from-[#CF9585] to-[#EBC9D4] text-[#1D1D1F] px-3 py-1 rounded-full text-xs font-bold shadow-md flex items-center gap-1 animate-pulse">
+                      <span>✨ Newly Joined</span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="mt-5">
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-gray-900 text-xl font-bold font-manrope">
+                    <h3 className="text-gray-900 text-xl font-bold font-manrope leading-snug">
                       {item.name}
                     </h3>
                     <span className="text-[#CF9585] font-bold text-base font-manrope">
-                      {item.price}
+                      {item.priceTier || item.price || "$$$"}
                     </span>
                   </div>
 
@@ -97,33 +71,42 @@ export default function HomeRecentlyView() {
                     <div className="flex items-center gap-1">
                       <span className="text-amber-500 text-sm">★</span>
                       <span className="text-[#1D1D1F] font-bold text-xs font-manrope">
-                        {item.rating}
+                        {item.rating || 5.0}
                       </span>
-                      <span>({item.reviews} reviews)</span>
+                      <span>({item.reviewsCount || item.reviews || 1} reviews)</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <div className="size-4">
                         <LocationIconSVG />
                       </div>
                       <span className="text-[#6A7283] font-manrope">
-                        {item.location}
+                        {item.city || item.location || "Dhaka"}
                       </span>
                     </div>
                   </div>
 
-                  <p className="text-[#4F586D] text-xs leading-relaxed font-manrope">
+                  <p className="text-[#4F586D] text-xs leading-relaxed font-manrope line-clamp-2">
                     {item.description}
                   </p>
 
                   <div className="flex flex-wrap gap-2 my-4">
-                    {item.tags.map((tag, i) => (
-                      <span
-                        key={i}
-                        className="px-2.5 py-0.5 rounded-md bg-[#FAF5F6] text-[#CF9585] text-[11px] font-semibold font-manrope"
-                      >
-                        ✓ {tag}
-                      </span>
-                    ))}
+                    {item.features
+                      ? item.features.slice(0, 2).map((tag, i) => (
+                          <span
+                            key={i}
+                            className="px-2.5 py-0.5 rounded-md bg-[#FAF5F6] text-[#CF9585] text-[11px] font-semibold font-manrope"
+                          >
+                            ✓ {tag}
+                          </span>
+                        ))
+                      : item.tags?.slice(0, 2).map((tag, i) => (
+                          <span
+                            key={i}
+                            className="px-2.5 py-0.5 rounded-md bg-[#FAF5F6] text-[#CF9585] text-[11px] font-semibold font-manrope"
+                          >
+                            ✓ {tag}
+                          </span>
+                        ))}
                   </div>
                 </div>
               </div>

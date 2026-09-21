@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Container from "@/components/common/Container";
 import CommonButton from "@/components/common/CommonButton";
+import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 
 export default function BrowseVendors() {
+  const vendorsFromRedux = useSelector((state) => state.vendors?.list || []);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [priceFilter, setPriceFilter] = useState("All");
@@ -23,143 +25,26 @@ export default function BrowseVendors() {
     "Cakes & Desserts",
   ];
 
-  const vendorList = [
-    {
-      id: "v_1",
-      name: "Grand Imperial Hall & Gardens",
-      category: "Venues & Banquets",
-      priceTier: "$$$",
-      priceRange: "Starting from $15,000",
-      rating: 4.9,
-      reviewsCount: 142,
-      city: "Dhaka",
-      address: "Plot 14, Gulshan Avenue, Dhaka",
-      capacity: "Up to 800 Guests",
-      features: ["Bridal Suite Included", "Valet Parking", "In-house Catering Available", "Outdoor Lawn Option"],
-      image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80",
-      description: "A breathtaking luxury ballroom with crystal chandeliers, grand staircases, and lush outdoor landscaped gardens.",
-    },
-    {
-      id: "v_2",
-      name: "Eternal Moments Photography & Cinema",
-      category: "Photography & Cinema",
-      priceTier: "$$$",
-      priceRange: "Starting from $3,500",
-      rating: 5.0,
-      reviewsCount: 98,
-      city: "Dhaka",
-      address: "Banani 11, Dhaka",
-      capacity: "Multiple Crews",
-      features: ["4K Drone Cinematography", "Same-Day Teaser Reel", "Luxury Leather Albums", "2 Senior Cinematographers"],
-      image: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80",
-      description: "Masters of fine-art wedding storytelling, capturing raw emotions, joyful tears, and cinematic legacy moments.",
-    },
-    {
-      id: "v_3",
-      name: "Blossom & Dream Floral Design",
-      category: "Floral & Decor",
-      priceTier: "$$",
-      priceRange: "Starting from $4,000",
-      rating: 4.8,
-      reviewsCount: 76,
-      city: "Dhaka",
-      address: "Dhanmondi 27, Dhaka",
-      capacity: "Custom Stages",
-      features: ["Imported Fresh Flowers", "Custom Stage & Mandap", "Fairy Light Canopies", "Mehendi Themed Stages"],
-      image: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80",
-      description: "Award-winning stage and floral styling company transforming venues into fairytale wonderlands.",
-    },
-    {
-      id: "v_4",
-      name: "Savor Delights Gourmet Catering",
-      category: "Catering & Cuisine",
-      priceTier: "$$$",
-      priceRange: "Starting from $45 / Plate",
-      rating: 4.9,
-      reviewsCount: 110,
-      city: "Dhaka",
-      address: "Uttara Sector 7, Dhaka",
-      capacity: "100 to 2,000 Guests",
-      features: ["Halal Certified Kitchen", "Kacchi Biryani Specialty", "Live Food Stations", "Dietary Customization"],
-      image: "https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80",
-      description: "Renowned culinary masters bringing rich heritage banquets and exquisite fusion delicacies to your celebration.",
-    },
-    {
-      id: "v_5",
-      name: "Glamour Glow Bridal Artistry",
-      category: "Makeup & Hair",
-      priceTier: "$$",
-      priceRange: "Starting from $800",
-      rating: 4.9,
-      reviewsCount: 88,
-      city: "Dhaka",
-      address: "Gulshan 1, Dhaka",
-      capacity: "Bride & Bridal Party",
-      features: ["HD Airbrush Makeup", "Traditional & Western Looks", "Pre-bridal Skin Prep", "On-location Service"],
-      image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=800&q=80",
-      description: "Celebrity bridal makeup artists dedicated to highlighting your radiant natural beauty on your big day.",
-    },
-    {
-      id: "v_6",
-      name: "Royal Heritage Haute Couture",
-      category: "Bridal Wear & Attire",
-      priceTier: "$$$$",
-      priceRange: "Starting from $2,200",
-      rating: 4.9,
-      reviewsCount: 64,
-      city: "Dhaka",
-      address: "Banani Road 10, Dhaka",
-      capacity: "Custom Bespoke",
-      features: ["Handcrafted Zardozi & Silk", "Custom Groom Sherwanis", "Private Bridal Suite Fitting", "Rush Delivery Available"],
-      image: "https://images.unsplash.com/photo-1594552072238-b8a33785b261?auto=format&fit=crop&w=800&q=80",
-      description: "Exquisite handcrafted bridal lehengas, sarees, and groom sherwanis woven with royal traditions and modern grace.",
-    },
-    {
-      id: "v_7",
-      name: "Symphony Strings & Live Beats",
-      category: "DJ & Entertainment",
-      priceTier: "$$",
-      priceRange: "Starting from $1,800",
-      rating: 4.8,
-      reviewsCount: 52,
-      city: "Dhaka",
-      address: "Mohakhali DOHS, Dhaka",
-      capacity: "All Venues",
-      features: ["Live String Quartet", "Professional Wedding DJ", "Intelligent Light Shows", "Sound Engineering"],
-      image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80",
-      description: "Electrifying live music, emotional acoustic ceremony strings, and energetic dance floor beats.",
-    },
-    {
-      id: "v_8",
-      name: "Prestige Luxe Event Planners",
-      category: "Wedding Planners",
-      priceTier: "$$$$",
-      priceRange: "Starting from $5,000",
-      rating: 5.0,
-      reviewsCount: 115,
-      city: "Dhaka",
-      address: "Gulshan 2, Dhaka",
-      capacity: "Full-Service Coordination",
-      features: ["Day-of Coordination", "Full 12-Month Management", "Vendor Contract Negotiations", "VIP Hospitality Concierge"],
-      image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80",
-      description: "Flawless end-to-end wedding production and luxury management ensuring you savor every moment stress-free.",
-    },
-  ];
-
-  const filteredVendors = vendorList.filter((vendor) => {
-    const matchesCategory = selectedCategory === "All" || vendor.category === selectedCategory;
-    const matchesPrice = priceFilter === "All" || vendor.priceTier === priceFilter;
+  const filteredVendors = vendorsFromRedux.filter((vendor) => {
+    const matchesCategory =
+      selectedCategory === "All" ||
+      vendor.category?.toLowerCase() === selectedCategory.toLowerCase() ||
+      vendor.category?.toLowerCase().includes(selectedCategory.toLowerCase());
+    const matchesPrice =
+      priceFilter === "All" || vendor.priceTier === priceFilter;
     const matchesSearch =
-      vendor.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      vendor.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      vendor.city.toLowerCase().includes(searchQuery.toLowerCase());
+      vendor.name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      vendor.category?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      vendor.city?.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesPrice && matchesSearch;
   });
 
   const handleSendInquiry = (e) => {
     e.preventDefault();
     setInquirySent(true);
-    toast.success(`🎉 Inquiry successfully sent to ${selectedVendorForModal.name}! They will contact you shortly.`);
+    toast.success(
+      `🎉 Inquiry successfully sent to ${selectedVendorForModal.name}! They will contact you shortly.`
+    );
     setTimeout(() => {
       setSelectedVendorForModal(null);
       setInquirySent(false);
@@ -178,7 +63,7 @@ export default function BrowseVendors() {
             Browse Top-Rated Wedding Vendors
           </h1>
           <p className="text-sm md:text-base text-[#5B6477]">
-            Connect directly with award-winning venues, photographers, caterers, and decorators. Read verified reviews and request custom quotes in seconds.
+            Connect directly with verified banquet halls, fine-art photographers, gourmet caterers, and floral designers.
           </p>
         </div>
 
@@ -194,7 +79,9 @@ export default function BrowseVendors() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full px-4 py-3 pl-11 rounded-2xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#CF9585]"
               />
-              <span className="absolute left-4 top-3.5 text-gray-400 text-base">🔍</span>
+              <span className="absolute left-4 top-3.5 text-gray-400 text-base">
+                🔍
+              </span>
             </div>
 
             {/* Price Filter */}
@@ -237,7 +124,11 @@ export default function BrowseVendors() {
           {filteredVendors.map((vendor) => (
             <div
               key={vendor.id}
-              className="bg-white rounded-3xl border border-[#EFE5E7] shadow-xs overflow-hidden flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              className={`bg-white rounded-3xl border overflow-hidden flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ${
+                vendor.isNewlyRegistered
+                  ? "border-[#CF9585] ring-2 ring-[#FAD7E0] shadow-md"
+                  : "border-[#EFE5E7] shadow-xs"
+              }`}
             >
               <div>
                 <div className="h-56 w-full relative overflow-hidden">
@@ -246,12 +137,22 @@ export default function BrowseVendors() {
                     alt={vendor.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
                   />
-                  <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-white text-xs font-bold">
-                    {vendor.priceTier} • {vendor.category}
+                  <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-white text-xs font-bold flex items-center gap-1.5">
+                    <span>{vendor.priceTier}</span>
+                    <span>•</span>
+                    <span>{vendor.category}</span>
                   </div>
-                  <div className="absolute top-4 right-4 bg-white/95 px-2.5 py-1 rounded-full text-[#1D1D1F] text-xs font-bold shadow-md flex items-center gap-1">
-                    <span className="text-amber-500">★</span> {vendor.rating} ({vendor.reviewsCount})
-                  </div>
+
+                  {vendor.isNewlyRegistered ? (
+                    <div className="absolute top-4 right-4 bg-gradient-to-r from-[#CF9585] to-[#EBC9D4] text-[#1D1D1F] px-3 py-1 rounded-full text-xs font-bold shadow-md flex items-center gap-1 animate-pulse">
+                      <span>✨ New Verified Partner</span>
+                    </div>
+                  ) : (
+                    <div className="absolute top-4 right-4 bg-white/95 px-2.5 py-1 rounded-full text-[#1D1D1F] text-xs font-bold shadow-md flex items-center gap-1">
+                      <span className="text-amber-500">★</span> {vendor.rating}{" "}
+                      ({vendor.reviewsCount})
+                    </div>
+                  )}
                 </div>
 
                 <div className="p-6 space-y-3">
@@ -270,8 +171,11 @@ export default function BrowseVendors() {
                   </p>
 
                   <div className="flex flex-wrap gap-1.5 pt-2">
-                    {vendor.features.slice(0, 2).map((f, i) => (
-                      <span key={i} className="px-2.5 py-1 rounded-md bg-[#FAF5F6] text-[#CF9585] text-[11px] font-semibold">
+                    {vendor.features?.slice(0, 2).map((f, i) => (
+                      <span
+                        key={i}
+                        className="px-2.5 py-1 rounded-md bg-[#FAF5F6] text-[#CF9585] text-[11px] font-semibold"
+                      >
                         ✓ {f}
                       </span>
                     ))}
@@ -281,8 +185,12 @@ export default function BrowseVendors() {
 
               <div className="p-6 pt-0 border-t border-gray-100 mt-4 flex items-center justify-between gap-4">
                 <div>
-                  <span className="text-[10px] text-gray-400 font-bold uppercase block">Starting Price</span>
-                  <span className="text-sm font-bold text-[#1D1D1F]">{vendor.priceRange}</span>
+                  <span className="text-[10px] text-gray-400 font-bold uppercase block">
+                    Starting Price
+                  </span>
+                  <span className="text-sm font-bold text-[#1D1D1F]">
+                    {vendor.priceRange}
+                  </span>
                 </div>
 
                 <button
@@ -311,7 +219,9 @@ export default function BrowseVendors() {
                   {selectedVendorForModal.name}
                 </h2>
                 <p className="text-xs text-gray-500 mt-1">
-                  📍 {selectedVendorForModal.address} • ★ {selectedVendorForModal.rating} ({selectedVendorForModal.reviewsCount} Couple Reviews)
+                  📍 {selectedVendorForModal.address} • ★{" "}
+                  {selectedVendorForModal.rating} (
+                  {selectedVendorForModal.reviewsCount} Couple Reviews)
                 </p>
               </div>
 
@@ -334,8 +244,11 @@ export default function BrowseVendors() {
                   Key Features & Amenities
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {selectedVendorForModal.features.map((feat, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-xs font-medium text-gray-700 bg-gray-50 p-2.5 rounded-xl">
+                  {selectedVendorForModal.features?.map((feat, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center gap-2 text-xs font-medium text-gray-700 bg-gray-50 p-2.5 rounded-xl"
+                    >
                       <span className="text-green-600">✓</span> {feat}
                     </div>
                   ))}
